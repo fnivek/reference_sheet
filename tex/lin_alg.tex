@@ -1,0 +1,1176 @@
+
+
+\section{Linear Equations}
+
+\subsection{Introduction to Linear Systems}
+\par Nothing important to study or review.\\
+\pagebreak
+
+\subsection{Matrices, Vectors, and Gauss-Jordan Elimination}
+\par\noindent\textbf{Definition: Vectors and vector spaces}
+\par\noindent A matrix with only one column is a column vector. The set of all column vectors with $n$ components is the \textit{vector space} $\mathbb{R}^{n}$\\
+\par\noindent\textbf{Definition: Standard representation of vectors}
+\par\noindent The standard representation of $\vec{v}=\left[\begin{array}{c}x\\y\end{array}\right]$ in the Cartesian coordinate plane is an arrow from the origin to the point.\\
+\par\noindent\textbf{Reduced Row-Echelon Form (rref)}
+\renewcommand{\labelenumi}{\textbf{(\alph{enumi})}}
+\begin{enumerate}
+\item If a row has nonzero entries, then the first nonzero entry is a $1$.
+\item If a column contains a leading $1$, then all other entries in that column are $0$.
+\item If a row contains a leading $1$, then each row above it contains a leading $1$ further to the left.
+\end{enumerate}
+\par\noindent Condition \textbf{(c)} implies that rows of $0$'s, if any, are at the bottom of the matrix.\\
+\par\noindent\textbf{Types of elementary row operations}
+\begin{itemize}
+\item Divide a row by a nonzero scalar.
+\item Subtract a multiple of one row from another row.
+\item Swap two rows.
+\end{itemize}
+\pagebreak
+
+\subsection{On the Solutions of Linear Systems; Matrix Algebra}
+\subsubsection*{The Number of Solutions of a Linear System}
+\textbf{Theorem 1.3.1}\\
+\par\noindent\textbf{Number of solutions of a linear system}
+\par\noindent A system of equations is \textit{consistent} if there is at least one solution; it is \textit{inconsistent} if there are no solutions. A linear system is inconsistent if in rref, there's the row $\left[\begin{array}{cccc|c}0 & 0 & \cdots & 0 & 0\end{array}\right]$, representing the equation $0=1$.
+\par\noindent If a linear system is consistent, then it has either \textit{infinitely many solutions} if there is at least one free variable, or \textit{exactly one solution} if there are no free variables.\\
+\textbf{Definition 1.3.2}\\
+\par\noindent\textbf{Definition: Rank of a Matrix}
+\par\noindent The rank of a matrix $A$ is the number of leading $1$'s in $\mathrm{rref}(A)$, denoted $\mathrm{rank}(A)$.\\
+\textbf{Theorem 1.3.3}\\
+\par\noindent\textbf{Number of equations vs. number of unknowns}
+\renewcommand{\labelenumi}{\textbf{(\alph{enumi})}}
+\begin{enumerate}
+\item If a linear system has exactly one solution, then the number of equations must be greater than or equal to the number of variables.
+\end{enumerate}
+\par\quad
+\subsubsection*{Matrix Algebra}
+\textbf{Definition 1.3.5}\\
+\par\noindent\textbf{Sums of matrices}
+\par\noindent The sum of two matrices of the same size is defined entry by entry:
+\[\left[\begin{array}{ccc}a_{11} & \cdots & a_{1m}\\ \vdots & & \vdots\\ a_{n1} & \cdots & a_{nm}\end{array}\right]+\left[\begin{array}{ccc}b_{11} & \cdots & b_{1m}\\ \vdots & & \vdots\\ b_{n1} & \cdots & b_{nm}\end{array}\right]=\left[\begin{array}{ccc}a_{11}+b_{11} & \cdots & a_{1m}+b_{1m}\\ \vdots & & \vdots\\ a_{n1}+b_{n1} & \cdots & a_{nm}+b_{nm}\end{array}\right]\]
+\par\noindent\textbf{Scalar multiples of matrices}
+\par\noindent The product of a scalar with a matrix is defined entry by entry:
+\[k\left[\begin{array}{ccc}a_{11} & \cdots & a_{1m}\\ \vdots & & \vdots\\ a_{n1} & \cdots & a_{nm}\end{array}\right]=\left[\begin{array}{ccc}ka_{11} & \cdots & ka_{1m}\\ \vdots & & \vdots\\ ka_{n1} & \cdots & ka_{nm}\end{array}\right]\]
+\textbf{Definition 1.3.6}\\
+\par\noindent\textbf{Dot product of vectors}
+\par\noindent Consider two vectors $\vec{v}$ and $\vec{w}$ with components $v_{1},\ldots{},v_{n}$ and $w_{1},\ldots{},w_{n}$. Then the dot product of $\vec{v}$ and $\vec{w}$ is $\vec{v}\cdot\vec{w}=v_{1}w_{1}+\cdots{}+v_{n}w_{n}$.
+\textbf{Definition 1.3.7}\\
+\par\noindent\textbf{The product $A\vec{x}$}
+\par\noindent If $A$ is an $n\times{}m$ matrix with row vectors $\vec{w_{1}}\,\ldots{}\vec{w_{n}}$, and $\vec{x}$ is a vector in $\mathbb{R}^{m}$, then
+\[A\vec{x}=\left[\begin{array}{ccc}- & \vec{w_{1}} & -\\ & \vdots & \\ - & \vec{w_{n}} & - \end{array}\right]\vec{x}=\left[\begin{array}{c}\vec{w_{1}}\cdot\vec{x}\\ \vdots\\ \vec{w_{n}}\cdot\vec{x}\end{array}\right]\]
+\textbf{Theorem 1.3.8}\\
+\par\noindent\textbf{The product $A\vec{x}$ in terms of the columns of $A$}
+\par\noindent If the column vectors of an $n\times{}m$ matrix $A$ are $\vec{v_{1}},\ldots{},\vec{v_{m}}$ and $\vec{x}$ is a vector in $\mathbb{R}^{m}$ with components $x_{1},\ldots{},x_{m}$, then
+\[A\vec{x}=\left[\begin{array}{ccc}| & & | \\ \vec{v_{1}} & \cdots{} & \vec{v_{m}} \\ | & & |\end{array}\right]\left[\begin{array}{c}x_{1} \\ \vdots{} \\ x_{m}\end{array}\right]=x_{1}\vec{v_{1}}+\cdots{}+x_{m}\vec{v_{m}}\]
+\textbf{Definition 1.3.9}\\
+\par\noindent\textbf{Linear combinations}
+\par\noindent A vector $\vec{b}$ in $\mathbb{R}^{n}$ is called a linear combination of the vectors $\vec{v_{1}},\ldots{},\vec{v_{m}}$ in $\mathbb{R}^{n}$ if there exist scalars $x_{1},\ldots{},x_{m}$ such that
+\[\vec{b}=x_{1}\vec{v_{1}}+\cdots{}+x_{m}\vec{v_{m}}\]
+\textbf{Theorem 1.3.10}\\
+\par\noindent\textbf{Algebraic rules for $A\vec{x}$}
+\par\noindent If $A$ is an $n\times{}m$ matrix, $\vec{x}$ and $\vec{u}$ are vectors in $\mathbb{R}^{m}$, and $k$ is a scalar, then
+\renewcommand{\labelenumi}{\textbf{\alph{enumi}.}}
+\begin{enumerate}
+\item $A(\vec{x}+\vec{y})=A\vec{x}+A\vec{y}$, and
+\item $A(k\vec{x})=k(A\vec{x})$.
+\end{enumerate}
+\textbf{Theorem 1.3.11}\\
+\par\noindent\textbf{Matrix form of a linear system}
+\par\noindent We can write the linear system with augmented matrix $\left[\begin{array}{c|c}A & \vec{b}\end{array}\right]$ in matrix form as
+\[A\vec{x}=\vec{b}\]
+
+\pagebreak
+
+\section*{The Joy of Sets}
+\subsubsection*{Set relations: Equality}
+\textbf{Definition 1.}\\
+\par\noindent Two sets are defined to be equal when they have precisely the same elements. When the sets $A$ and $B$ are equal, we write $A=B$.
+\subsubsection*{Set relations: Subset}
+\textbf{Definition 2.}\\
+\par\noindent If $A$ and $B$ are sets, then we say that $A$ is a subset of $B$ (or $A$ is contained in $B$, or $B$ contains $A$, or $A$ is included in $B$, or $B$ includes $A$), and write $A\subset{}B$ or $A\subseteq{}B$, provided that every element of $A$ is an element of $B$.
+\subsubsection*{Set operations: Complement, union, and intersubsection}
+\textbf{Definition 3.}\\
+\par\noindent The union of sets $A$ and $B$, written $A\cup{}B$, is the set \[\{x|(x\in{}A)\mathrm{or}(x\in{}B)\}\]
+\textbf{Definition 4.}\\
+\par\noindent The intersubsection of sets $A$ and $B$, written $A\cap{}B$, is the set
+\textbf{Remark 5.}\\
+\par\noindent For $S$ and $T$ sets, $S\cap{}T\subset{}S\subset{}S\cup{}T$ and $S\cap{}T\subset{}T\subset{}S\cup{}T$
+\[\{x|(x\in{}A)\mathrm{and}(x\in{}B)\}\]
+\textbf{Definition 6.}\\
+\par\noindent Suppose $A$ and $B$ are sets. The difference of $B$ and $A$, denoted $B\setminus{}A$ or $B-A$ is the set
+\[\{b\in{}B|b\notin{}A\}\]
+\textbf{Definition 7.}\\
+\par\noindent Let $U$ denote a set that contains a subset $A$. The complement of $A$ (with respect to $U$), often written $A^{c}$, $A\complement$, $\overline{A}$, or $A'$, is the set $U\setminus{}A$.
+\subsubsection*{Random Notes}
+\par\noindent $\mathbb{N}$ is the set of natural numbers, $1,2,3,4,\ldots$.
+\par\noindent $\mathbb{Z}$ is the set of integers.
+\par\noindent $\mathbb{Q}$ is the set of rational numbers.
+\par\noindent $\mathbb{R}$ is the set of real numbers.
+\par\noindent The cardinality of set $A$ is $|A|$, and is defined as the number of elements the set contains.
+\par\noindent $\emptyset{}$ has cardinality zero, but $\{\emptyset\}$ has cardinality one.
+\par\noindent For any set $A$, $\emptyset\subset{}A\subset{}A$.
+\par\noindent For any sets $A$, $B$, $A=B$ if and only if $A\subset{}B$ and $B\subset{}A$.
+\par\noindent For any set $S$, $S\cup\emptyset{}=S$.
+\par\noindent For any set $S$, $S\cap\emptyset{}=\emptyset$.
+\par\noindent For any sets $A$, $U$ such that $A\subset{}U$, $A\complement\cup{}A=U$ and $A\complement\cap{}A=\emptyset$.
+\par\noindent Two sets with empty intersubsection are said to be disjoint.
+\par\noindent $(A\cup{}B)\complement{}=A\complement\cap{}B\complement$ and $(A\cap{}B)\complement{}=A\complement\cup{}B\complement$
+
+\section*{Mathematical Hygiene}
+\subsubsection*{Statements}
+\textbf{Definition 1.}\\
+\par\noindent A statement, also called a proposition, is a sentence that is either true or false, but not both.
+\subsubsection*{Negation and truth tables}
+\par\noindent The truth table for negation: $\begin{array}{c||c} p & \neg \\ \hline T & F \\ F & T \end{array}$
+\subsubsection*{Equivalent Statements}
+\par\noindent The truth table for double negation: $\begin{array}{c||c|c}p & \neg{}p & \neg{}(\neg{}p) \\ \hline T & F & T \\ F & T & F\end{array}$
+\subsubsection*{Compound statements: Conjunctions and Disjunctions}
+\par\noindent The truth table for conjunction (and): $\begin{array}{c|c||c} p & q & p\land{}q \\ \hline T & T & T \\ T & F & F \\ F & T & F \\ F & F& F\end{array}$
+\par\noindent The truth table for disjunction (or): $\begin{array}{c|c||c}p & q & p\lor{}q \\ \hline T & T & T \\ T & F & T \\ F & T & T \\ F & F & F\end{array}$
+\subsubsection*{Conditional Statements}
+\par\noindent The truth table for the conditional statement p implies q or if p then q: $\begin{array}{c|c||c}p & q & p\Rightarrow{}q \\ \hline T & T & T \\ T & F & F \\ F & T & T \\ F & F & T\end{array}$
+\par\noindent The truth table for the negation of $p\Rightarrow{}q$: $\begin{array}{c|c||c|c}p & q & p\land\neg{}q & \neg{}(p\Rightarrow{}q) \\ \hline T & T & F & F \\ T & F & T & T \\ F & T & F & F \\ F & F & F & F\end{array}$
+\subsubsection*{Predicates}
+\par\noindent A predicate $p(x)$ is a statement that may either be true or false, such as "$y>4$".
+\subsubsection*{Quantifiers}
+\par\noindent $\forall$ means "for all".
+\par\noindent $\exists$ means "there exists".
+
+\section{Linear Transformations}
+
+\subsection{Introduction to Linear Transformations and Their Inverses}
+\textbf{Definition 2.1.1}\\
+\par\noindent\textbf{Linear Transformations}
+\par\noindent A function $T$ from $\mathbb{R}^{m}$ to $\mathbb{R}^{n}$ is called a \textit{linear transformation} if there exists an $n\times{}m$ matrix $A$ such that $T(\vec{x}=A\vec{x}$ for all $\vec{x}$ in the vector space $\mathbb{R}^{m}$.
+\textbf{Theorem 2.1.2}\\
+\par\noindent\textbf{The columns of the matrix of a linear transformation}
+\par\noindent Consider a linear transformation $T$ from $\mathbb{R}^{m}$ to $\mathbb{R}^{n}$. Then the matrix of $T$ is
+\[A=\left[\begin{array}{cccc}|&|& &|\\ T(\vec{e_{1}})& T(\vec{e_{2}})& \cdots{}& T(\vec{e_{m}})\\ |&|& &|\end{array}\right]\textrm{, where }\vec{e_{1}}=\left[\begin{array}{c}0\\ 0\\ \vdots{}\\ 1\\ \vdots{}\\ 0\end{array}\right]\begin{array}{l}\\ \\ \\ \leftarrow{}i\textrm{th}\\ \\ \\ \end{array}\]
+\textbf{Theorem 2.1.3}\\
+\par\noindent\textbf{Linear transformations}
+\par\noindent A transformation $T$ from $\mathbb{R}^{m}$ to $\mathbb{R}^{n}$ is linear if (and only if)
+\renewcommand{\labelenumi}{\textbf{\alph{enumi}.}}
+\begin{enumerate}
+\item $T(\vec{v}+\vec{w})=T(\vec{v})+T(\vec{w})$, for all vectors $\vec{v}$ and $\vec{w}$ in $\mathbb{R}^{m}$, and
+\item $T(k\vec{v})=kT(\vec{v})$, for all vectors $\vec{v}$ in $\mathbb{R}^{m}$ and all scalars $k$.
+\end{enumerate}
+\pagebreak
+
+\subsection{Linear Transformations in Geometry}
+\textbf{Definition 2.2.1}\\
+\par\noindent\textbf{Orthogonal Projections}
+\par\noindent Consider a line $L$ in the coordinate plane running through the origin. Any vector $\vec{x}$ in $\mathbb{R}^{2}$ can be written uniquely as
+\[\vec{x}=\vec{x}^{\parallel}+\vec{x}^{\bot}\]
+\par\noindent where $\vec{x}^{\parallel}$ is parallel to line $L$ and $\vec{x}^{\bot}$ is perpendicular to $L$.
+\par\noindent The transformation $T(\vec{x})=\vec{x}^{\parallel}$ from $\mathbb{R}^{2}$ to $\mathbb{R}^{2}$ is called the \textit{orthogonal projection of} $\vec{x}$ \textit{onto} $L$, often denoted by $\textrm{proj}_{L}(\vec{x})$. If $\vec{w}$ is a nonzero vector parallel to $L$, then
+\[\textrm{proj}_{L}(\vec{x})=\left(\frac{\vec{x}\cdot\vec{w}}{\vec{w}\cdot\vec{w}}\right)\vec{w}.\]
+\par\noindent In particular, if $\vec{u}=\left[\begin{array}{c}u_{1}\\ u_{2}\end{array}\right]$ is a \textit{unit} vector parallel to $L$, then
+\[\textrm{proj}_{L}(\vec{x})=(\vec{x}\cdot\vec{u})\vec{u}.\]
+\par\noindent The transformation $T(\vec{x})=\textrm{proj}_{L}(\vec{x})$ is linear, with matrix
+\[P=\frac{1}{w_{1}^{2}+w_{2}^{2}}\left[\begin{array}{cc}w_{1}^{2}&w_{1}w_{2}\\ w_{1}w_{2}&w_{2}^{2}\end{array}\right]=\left[\begin{array}{cc}u_{1}^{2}&u_{1}u_{2}\\ u_{1}u_{2}&u_{2}^{2}\end{array}\right].\]
+\textbf{Definition 2.2.2}\\
+\par\noindent\textbf{Reflections}
+\par\noindent Consider a line $L$ in the coordinate plane, running through the origin, and let $\vec{x}=\vec{x}^{\parallel}+\vec{x}^{\bot}$ be a vector in $\mathbb{R}^{2}$. The linear transformation $T(\vec{x})=\vec{x}^{\parallel}-\vec{x}^{\bot}$ is called the \textit{reflection of} $\vec{x}$ \textit{about} $L$, often denoted by $\textrm{ref}_{L}(\vec{x})$:
+\[\textrm{ref}_{L}(\vec{x})=\vec{x}^{\parallel}-\vec{x}^{\bot}.\]
+\par\noindent We have a formula relating $\textrm{ref}_{L}(\vec{x})$ to $\textrm{proj}_{L}(\vec{x})$:
+\[\textrm{ref}_{L}(\vec{x})=2\textrm{proj}_{L}(\vec{x})-\vec{x}=2(\vec{x}\cdot\vec{u})\vec{u}-\vec{x}.\]
+\par\noindent The matrix of $T$ is of the form $\displaystyle\left[\begin{array}{rr}a&b\\ b&-a\end{array}\right]$, where $a^{2}+b^{2}=1$. Conversely, any matrix of this form represents reflection about a line.
+\textbf{Theorem 2.2.3}\\
+\par\noindent\textbf{Rotations}
+\par\noindent The matrix of a counterclockwise rotation in $\mathbb{R}^{2}$ through an angle $\theta$ is
+\[\left[\begin{array}{rr}\cos{}\theta{}&-\sin{}\theta{}\\ \sin{}\theta{}&\cos{}\theta{}\end{array}\right].\]
+\par\noindent Note that this matrix is of the from $\displaystyle\left[\begin{array}{rr}a&-b\\ b&a\end{array}\right]$, where $a^{2}+b^{2}=1$. Conversely, any matrix of this form represents a rotation.
+\textbf{Theorem 3.2.4}\\
+\par\noindent\textbf{Rotations combined with a scaling}
+\par\noindent A matrix of the form $\displaystyle\left[\begin{array}{rr}a&-b\\ b&a\end{array}\right]$ represents a rotation combined with a scaling.
+\par\noindent More precisely, if $r$ and $\theta$ are the polar coordinates of the vector $\displaystyle\left[\begin{array}{r}a\\ b\end{array}\right]$, then $\displaystyle\left[\begin{array}{rr}a&-b\\ b&a\end{array}\right]$ represents a rotation through $\theta$ combined with a scaling by $r$.
+\textbf{Theorem 2.2.5}\\
+\par\noindent\textbf{Horizontal and vertical shears}
+\par\noindent The matrix of a \textit{horizontal Shear} is of the from $\displaystyle\left[\begin{array}{cc}1&k\\ 0&1\end{array}\right]$, and the matrix of a \textit{vertical shear} is of the form $\displaystyle\left[\begin{array}{cc}1&0\\ k&1\end{array}\right]$, where $k$ is an arbitrary constant.\\
+\textbf{Summary}\\
+\begin{tabular}{lll}
+\textbf{Transformation} & \qquad{} & \textbf{Matrix}\\
+\textbf{Scaling} by $k$ & \qquad{} & $kI_{2}=\left[\begin{array}{cc}k&0\\ 0&k\end{array}\right]$\\
+Orthogonal \textbf{projection} onto line $L$ & \qquad{} & $\left[\begin{array}{cc}u_{1}^{2}&u_{1}u_{2}\\ u_{1}u_{2}&u_{2}^{2}\end{array}\right]$, where $\left[\begin{array}{c}u_{1}\\ u_{2}\end{array}\right]$ is a unit vector parallel to $L$.\\
+\textbf{Reflection} about a line & \qquad{} & $\left[\begin{array}{cc}a&b\\ b&-a\end{array}\right]$, where $a^{2}+b^{2}=1$.\\
+\textbf{Rotation} through angle $\theta$ & \qquad{} & $\left[\begin{array}{cc}\cos\theta{}&-\sin\theta{}\\ \sin\theta{}&\cos\theta{}\end{array}\right]$ or $\left[\begin{array}{cc}a&-b\\ b&a\end{array}\right]$, where $a^{2}+b^{2}=1$.\\
+\textbf{Rotation} through angle $\theta$ combined with \textbf{scaling} by $r$  & \qquad{} & $\left[\begin{array}{cc}a&-b\\ b&a\end{array}\right]=r\left[\begin{array}{cc}\cos\theta{}&-\sin\theta{}\\ \sin\theta{}&\cos\theta{}\end{array}\right]$\\
+\textbf{Horizontal shear} & \qquad{} & $\left[\begin{array}{cc}1&k\\ 0&1\end{array}\right]$\\
+\textbf{Vertical shear} & \qquad{} & $\left[\begin{array}{cc}1&0\\ k&1\end{array}\right]$\\
+\end{tabular}
+\pagebreak
+
+\subsection{Matrix Products}
+\textbf{Definition 2.3.1}\\
+\par\noindent\textbf{Matrix Multiplication}
+\renewcommand{\labelenumi}{\textbf{\alph{enumi}.}}
+\begin{enumerate}
+\item Let $B$ be an $n\times{}p$ matrix and $A$ a $q\times{}m$ matrix. The product $BA$ is defined if (and only if) $p=q$.
+\item If $B$ is an $n\times{}q$ matrix and $A$ a $p\times{}m$ matrix, then the product $BA$ is defined as the matrix of the linear transformation $T(\vec{x})=B(A\vec{x})$. This means that $T(\vec{x})=B(A\vec{x})=(BA)\vec{x}$, for all $\vec{x}$ in the vector space $\mathbb{R}^{m}$. The product $BA$ is an $n\times{}m$ matrix.
+\end{enumerate}
+\textbf{Theorem 2.3.2}\\
+\par\noindent\textbf{The columns of the matrix product}
+\par\noindent Let $B$ be an $n\times{}p$ matrix and $A$ a $p\times{}m$ matrix with columns $\vec{v_{1}},\vec{v_{2}},\ldots{},\vec{v_{m}}$. Then, the product $BA$ is
+\[BA=B\left[\begin{array}{cccc}|&|&&|\\ \vec{v_{1}}&\vec{v_{2}}&\cdots{}&\vec{v_{m}}\\ |&|&&|\end{array}\right]=\left[\begin{array}{cccc}|&|&&|\\ B\vec{v_{1}}&B\vec{v_{2}}&\cdots{}&B\vec{v_{m}}\\ |&|&&|\end{array}\right].\]
+\par\noindent To find $BA$, we can multiply $B$ by the columns of $A$ and combine the resulting vectors.
+\textbf{Theorem 2.3.3}\\
+\par\noindent\textbf{Matrix multiplication is noncommutative}
+\par\noindent $AB\ne{}BA$, in general. However, at times it does happen that $AB=BA$; then we say that the matrices $A$ and $B$ \textit{commute}.
+\textbf{Theorem 2.3.4}\\
+\par\noindent\textbf{The entries of the matrix product}
+\par\noindent Let $B$ be an $n\times{}p$ matrix and $A$ a $p\times{}m$ matrix. The $ij$th entry of $BA$ is the dot products of the $i$th row of $B$ with the $j$th column of $A$.
+\[BA=\left[\begin{array}{cccc}b_{11}&b_{12}&\cdots{}&b_{1p}\\ b_{21}&b_{22}&\cdots{}&b_{2p}\\ \vdots{}&\vdots{}&&\vdots{}\\ b_{i1}&b_{i2}&\cdots{}&b_{ip}\\ \vdots{}&\vdots{}&&\vdots{}\\ b_{n1}&b_{n2}&\cdots{}&b_{np}\end{array}\right]\left[\begin{array}{cccccc}a_{11}&a_{12}&\cdots{}&a_{1j}&\cdots{}&a_{1m}\\ a_{21}&a_{22}&\cdots{}&a_{2j}&\cdots{}&a_{2m}\\ \vdots{}&\vdots{}&&\vdots{}&&\vdots{}\\ a_{p1}&a_{p2}&\cdots{}&a_{pj}&\cdots{}&a_{pm}\end{array}\right]\]
+\par\noindent is the $n\times{}m$ matrix whose $ij$th entry is
+\[b_{i1}a_{1j}+b_{i2}a_{2j}+\cdots{}+b_{ip}a_{pj}=\sum_{k=1}^{p}b_{ik}a_{kj}.\]
+\textbf{Theorem 2.3.5}\\
+\par\noindent\textbf{Multiplying with the identity matrix}
+\par\noindent For an $n\times{}m$ matrix $A$, $AI_{m}=I_{n}A=A$.
+\textbf{Theorem 2.3.6}\\
+\par\noindent\textbf{Matrix multiplication is associative}
+\[(AB)C=(A(BC)\]
+\par\noindent We can simply write $ABC$ for the product $(AB)C=A(BC)$.
+\textbf{Theorem 2.3.7}\\
+\par\noindent\textbf{Distributive property for matrices}
+\par\noindent If $A$ and $B$ are $n\times{}p$ matrices, and $C$ and $D$ are $p\times{}m$ matrices, then 
+\[A(C+D)=AC+AD\textrm{, and}\]
+\[(A+B)C=AC+BC.\]
+\textbf{Theorem 2.3.8}\\
+\par\noindent If $A$ is an $n\times{}p$ matrix, $B$ is a $p\times{}m$ matrix, and $k$ is a scalar, then
+\[(kA)B=A(kB)=k(AB)\]
+\pagebreak
+
+\subsection{The inverse of a Linear Transformation}
+\textbf{Definition 2.4.1}\\
+\par\noindent\textbf{Invertible Functions}
+\par\noindent A function $T$ from $X$ to $Y$ is called invertible if the equation $T(x)=y$ as a unique solution $x$ in $X$ for each $y$ in $Y$.
+\par\noindent In this case, the inverse $T^{-1}$ from $Y$ to $X$ is defined by
+\[T^{-1}(y)=\left(\textrm{the unique }x\textrm{ in }X\textrm{ such that }T(x)=y\right).\]
+\par\noindent To put it differently, the equation
+\[x=T^{-1}(y)\quad\textrm{means that}\quad y=T(x)\]
+par\noindent Note that
+\[T^{-1}(T(x))=x\quad\textrm{and}\quad T(T^{-1}(y))=y\]
+\par\noindent for all $x$ in $X$ and for all $y$ in $Y$.
+\par\noindent Conversely, if $L$ is a function from $Y$ to $X$ such that
+\[L(T(x))=x\quad\textrm{and}\quad T(L(y))=y\]
+\par\noindent for all $x$ in $X$ and for all $y$ in $Y$, then $T$ is invertible and $T^{-1}=L$.
+\par\noindent If a function is invertible, then so is $T^{-1}$ and $(T^{-1})^{-1}=T$.
+\textbf{Definition 2.4.2}\\
+\par\noindent\textbf{Invertible matrices}
+\par\noindent A square matrix $A$ is said to be \textit{invertible} if the linear transformation $\vec{y}=T(\vec{x})=A\vec{x}$ is invertible. In this case, the matrix of $T^{-1}$ is denoted by $A^{-1}$. If the linear transformation $\vec{y}=T(\vec{x})=A\vec{x}$ is invertible, then its inverse is $\vec{x}=T^{-1}(\vec{y})=A^{-1}\vec{y}$.
+\textbf{Theorem 2.4.3}\\
+\par\noindent\textbf{Invertibility}
+\par\noindent An $n\times{}n$ matrix $A$ is invertible if (and only if) $\textrm{rref}(A)=I_{n}$ or, equivalently, if $\textrm{rank}(A)=n$.
+\textbf{Theorem 2.4.4}\\
+\par\noindent\textbf{Invertibility and linear systems}
+\par\noindent Let $A$ be an $n\times{}n$ matrix.
+\renewcommand{\labelenumi}{\textbf{\alph{enumi}.}}
+\begin{enumerate}
+\item Consider a vector $\vec{b}$ in $\mathbb{R}^{n}$. If $A$ is invertible, then the system $A\vec{x}=\vec{b}$ has the unique solution $\vec{x}=A^{-1}\vec{b}$. If $A$ is noninvertible, then the system $A\vec{x}=\vec{b}$ has infinitely many solutions or none.
+\item Consider the special case when $\vec{b}=\vec{0}$. The system $A\vec{x}=\vec{0}$ has $\vec{x}=\vec{0}$ as a solution. If $A$ is invertible, then this is the only solution. If $A$ is noninvertible, then the system $A\vec{x}=\vec{0}$ has infinitely many solutions.
+\end{enumerate}
+\textbf{Theorem 2.4.5}\\
+\par\noindent\textbf{Finding the inverse of a matrix}
+\par\noindent To find the \textit{inverse} of an $n\times{}n$ matrix $A$, form the $n\times{}(2n)$ matrix $\left[A|I_{n}\right]$ and compute $\textrm{rref}\left[A|I_{n}\right]$
+\begin{itemize}
+\item If $\textrm{rref}\left[A|I_{n}\right]$ is of the form $\left[I_{n}|B\right]$, then $A$ is invertible, and $A^{-1}=B$.
+\item If $\textrm{rref}\left[A|I_{n}\right]$ is of another form (i.e., its left half fails to be $I_{n}$), then $A$ is not invertible. Note that the left half of $\textrm{rref}\left[A|I_{n}\right]$ is $\textrm{rref}(A)$.
+\end{itemize}
+\textbf{Theorem 2.4.6}\\
+\par\noindent\textbf{Multiplying with the inverse}
+\par\noindent For an invertible $n\times{}n$ matrix $A$, $A^{-1}A=I_{n}$ and $AA^{-1}=I_{n}$.
+\textbf{Theorem 2.4.7}\\
+\par\noindent\textbf{The inverse of a product of matrices}
+\par\noindent If $A$ and $B$ are invertible $n\times{}n$ matrices, then $BA$ is invertible as well, and $(BA)^{-1}=A^{-1}B^{-1}$.
+\textbf{Theorem 2.4.8}\\
+\par\noindent\textbf{A criterion for invertibility}
+\par\noindent Let $A$ and $B$ be two $n\times{}n$ matrices such that $BA=I_{n}$. Then
+\renewcommand{\labelenumi}{\textbf{\alph{enumi}.}}
+\begin{enumerate}
+\item $A$ and $B$ are both invertible,
+\item $A^{-1}=B$ and $B^{-1}=A$, and
+\item $AB=I_{n}$.
+\end{enumerate}
+\textbf{Theorem 2.4.9}\\
+\par\noindent\textbf{Inverse and determinant of a $2\times{}2$ matrix}
+\renewcommand{\labelenumi}{\textbf{\alph{enumi}.}}
+\begin{enumerate}
+\item The $2\times{}2$ matrix $A=\left[\begin{array}{cc}a&b\\ c&d\end{array}\right]$ is invertible if (and only if) $ad-bc\ne{}0$. Quantity $ad-bc$ is called the \textit{determinant} of $A$, written $\textrm{det}(A)$:
+\[\textrm{det}(A)=\textrm{det}\left[\begin{array}{cc}a&b\\ c&d\end{array}\right]=ad-bc.\]
+\item If $A=\left[\begin{array}{cc}a&b\\ c&d\end{array}\right]$ is invertible, then
+\[\left[\begin{array}{cc}a&b\\ c&d\end{array}\right]^{-1}=\frac{1}{ad-bc}\left[\begin{array}{rr}d&-b\\ -c&a\end{array}\right]=\frac{1}{\textrm{det}(A)}\left[\begin{array}{rr}d&-b\\ -c&a\end{array}\right]\]
+\end{enumerate}
+\textbf{Theorem 2.4.10}\\
+\par\noindent\textbf{Geometrical interpretation of the determinant of a $2\times{}2$ matrix}
+\par\noindent If $A=\left[\begin{array}{cc}\vec{v}&\vec{w}\end{array}\right]$ is a $2\times{}2$ matrix with nonzero columns $\vec{v}$ and $\vec{w}$, then
+\[\textrm{det}(A)=\textrm{det}\left[\begin{array}{cc}\vec{v}&\vec{w}\end{array}\right]=||\vec{v}||\sin\theta{}||\vec{w}||,\]
+\par\noindent where $\theta$ is the oriented angle from $\vec{v}$ to $\vec{w}$, with $-\pi\le\theta\le\pi$. It follows that
+\begin{itemize}
+\item $|\textrm{det}(A)|=||\vec{v}|||\sin\theta{}|||\vec{w}||$ is the \textit{area of the parallelogram} spanned by $\vec{v}$ and $\vec{w}$.
+\item $\textrm{det}(A)=0$ if $\vec{v}$ and $\vec{w}$ are \textit{parallel}, meaning that $\theta=0$ or $\theta=\pi$.
+\item $\textrm{det}(A)>0$ if $0<\theta<\pi$, and
+\item $\textrm{det}(A)<0$ if $-\pi<\theta<0$.
+\end{itemize}
+\pagebreak
+
+\section{Subspaces of \texorpdfstring{$\mathbb{R}^{n}$}{R^n} and Their Dimensions}
+
+\subsection{Image and Kernel of a Linear Transformation}
+\textbf{Definition 3.1.1}\\
+\par\noindent\textbf{Image of a function}
+\par\noindent The \textit{image} of a function consists of all the values the function takes in its target space. If $f$ is a function from $X$ to $Y$, then $\textrm{image}(f)=\{f(x):x\;{}\textrm{in}\;{}X\}=\{b\;\textrm{in}\;{}Y:b=f(x),\;{}\textrm{for some}\;{}x\;{}\textrm{in}\;{}X\}$
+\textbf{Definition 3.1.2}\\
+\par\noindent\textbf{Span}
+\par\noindent Consider the vectors $\vec{v_{1}},\ldots{},\vec{v_{m}}$ in $\mathbb{R}^{n}$. The set of all linear combinations $c_{1}\vec{v_{1}}+\cdots{}+c_{m}\vec{v_{m}}$ of the vectors $\vec{v_{1}},\ldots{},\vec{v_{m}}$ is called their \textit{span}:
+\[\textrm{span}(\vec{v_{1}},\ldots{},\vec{v_{m}})=\{c_{1}\vec{v_{1}}+\cdots{}+c_{m}\vec{v_{m}}:c_{1},\ldots{},c_{m}\;\textrm{in}\;\mathbb{R}^{n}\}\]
+\textbf{Theorem 3.1.3}\\
+\par\noindent\textbf{Image of a linear transformation}
+\par\noindent The image of a linear transformation $T(\vec{x})=A\vec{x}$ is the span of the column vectors of $A$.* We denote the image of $T$ by $\textrm{im}(T)$ or $\textrm{im}(A)$.
+\par\noindent *The image of $T$ is also called the \textit{column space} of $A$.
+\textbf{Theorem 3.1.4}\\
+\par\noindent\textbf{Some properties of the image}
+\par\noindent The image of a linear transformation $T$ (from $\textbf{R}^{m}$ to $\textbf{R}^{n}$) has the following properties:
+\renewcommand{\labelenumi}{\textbf{\alph{enumi}.}}
+\begin{enumerate}
+\item The zero vector $\vec{0}$ in $\mathbb{R}^{n}$ is in the image of $T$.
+\item The image of $T$ is \textit{closed under addition}: If $\vec{v_{1}}$ and $\vec{v_{2}}$ are in the image of $T$, then so is $\vec{v_{1}}+\vec{v_{2}}$.
+\item The image of $T$ is \textit{closed under scalar multiplication}: If $\vec{v}$ is in the image of $T$ and $k$ is an arbitrary scalar, then $k\vec{v}$ is in the image of $T$ as well.
+\end{enumerate}
+\textbf{Definition 3.1.5}\\
+\par\noindent\textbf{Kernel}
+\par\noindent The \textit{kernel}* of a linear transformation $T(\vec{x})=A\vec{x}$ from $\mathbb{R}^{m}$ to $\mathbb{R}^{n}$ consists of all zeros of the transformation, that is, the solutions of the equation $T(\vec{x})=A\vec{x}=\vec{0}$. In other words, the kernel of $T$ is the solution set of the linear system
+\[A\vec{x}=\vec{0}.\]
+\par\noindent We denote the kernel of $T$ by $\textrm{ker}(T)$ or $\textrm{ker}(A)$.
+\par\noindent *The kernel of $T$ is also called the \textit{null space} of $A$.
+\textbf{Theorem 3.1.6}\\
+\par\noindent\textbf{Some properties of the kernel}
+\par\noindent Consider a linear transformation $T$ from $\mathbb{R}^{m}$ to $\mathbb{R}^{n}$.
+\renewcommand{\labelenumi}{\textbf{\alph{enumi}.}}
+\begin{enumerate}
+\item The zero vector $\vec{0}$ in $\mathbb{R}^{m}$ is in the kernel of $T$.
+\item The kernel is closed under addition.
+\item The kernel is closed under scalar multiplication.
+\end{enumerate}
+\textbf{Theorem 3.1.7}\\
+\par\noindent\textbf{When is $\textrm{ker}(A)=\{\vec{0}\}$?}
+\renewcommand{\labelenumi}{\textbf{\alph{enumi}.}}
+\begin{enumerate}
+\item Consider an $n\times{}n$ matrix $A$. Then $\textrm{ker}(A)=\{\vec{0}\}$ if (and only if) $\textrm{rank}(A)=n$.
+\item Consider an $n\times{}m$ matrix $A$. If $\textrm{ker}(A)=\{\vec{0}\}$, then $m\le{}n$. Equivalently, if $m>n$, then there are nonzero vectors in the kernel of $A$.
+\item For a \textit{square} matrix $A$, we have $\textrm{ker}(A)=\{\vec{0}\}$ if (and only if) $A$ is invertible.
+\end{enumerate}
+\textbf{Summary 3.1.8}\\
+\par\noindent\textbf{Various characterizations of invertible matrices}
+\par\noindent For an $n\times{}n$ matrix $A$, the following statements are equivalent; that is, for a given $A$, they are either all true or all false.
+\renewcommand{\labelenumi}{\textbf{\roman{enumi}.}}
+\begin{enumerate}
+\item $A$ is invertible
+\item The linear system $A\vec{x}=\vec{b}$ has a unique solution $\vec{x}$, for all $\vec{b}$ in $\mathbb{R}^{n}$.
+\item $\textrm{rref}(A)=I_{n}$.
+\item $\textrm{rank}(A)=n$.
+\item $\textrm{im}(A)=\mathbb{R}^{n}$.
+\item $\textrm{ker}(A)=\{\vec{0}\}$.
+\end{enumerate}
+\pagebreak
+
+\subsection{Subspaces of \texorpdfstring{$\mathbb{R}^{n}$}{R^n}; Bases and Linear Independence}
+\textbf{Definition 3.2.1}\\
+\par\noindent\textbf{Subspaces of $\mathbb{R}^{n}$}
+\par\noindent A subset $W$ of the vector space $\mathbb{R}^{n}$ is called a (linear) \textit{subspace} of $\mathbb{R}^{n}$ if it has the following three properties:
+\renewcommand{\labelenumi}{\textbf{\alph{enumi}.}}
+\begin{enumerate}
+\item $W$ contains the zero vector in $\mathbb{R}^{n}$.
+\item $W$ is closed under addition: If $\vec{w_{1}}$ and $\vec{w_{2}}$ are both in $W$, then so is $\vec{w_{1}}+\vec{w_{2}}$.
+\item $W$ is closed under scalar multiplication: If $\vec{w}$ is in $W$ and $k$ is an arbitrary scalar, then $k\vec{w}$ is in $W$.
+\end{enumerate}
+\textbf{Theorem 3.2.2}\\
+\par\noindent\textbf{Image and kernel are subspaces}
+\par\noindent If $T(\vec{X})=A\vec{x}$ is a linear transformation from $\mathbb{R}^{m}$ to $\mathbb{R}^{n}$, then
+\begin{itemize}
+\item $\textrm{ker}(T)=\textrm{ker}(A)$ is a subspace of $\mathbb{R}^{m}$, and
+\item $\textrm{image}(T)=\textrm{im}(A)$ is a subspace of $\mathbb{R}^{n}$.
+\end{itemize}
+\textbf{Definition 3.2.3}\\
+\par\noindent\textbf{Redundant vectors; linear independence; basis}
+\par\noindent Consider vectors $\vec{v_{1}},\ldots{},\vec{v_{m}}$ in $\mathbb{R}^{n}$.
+\renewcommand{\labelenumi}{\textbf{\alph{enumi}.}}
+\begin{enumerate}
+\item We say that a vector $\vec{v_{i}}$ in the list $\vec{v_{1}},\ldots{},\vec{v_{m}}$ is \textit{redundant} if $\vec{v_{i}}$ is a linear combination of the preceding vectors $\vec{v_{1}},\ldots{},\vec{v_{i-1}}$.*
+\item The vectors $\vec{v_{1}},\ldots{},\vec{v_{m}}$ are called \textit{linearly independent} if none of them is redundant. Otherwise, the vectors are called \textit{linearly dependent} (meaning that at least one of them is redundant).
+\item We say that the vectors $\vec{v_{1}},\ldots{},\vec{v_{m}}$ in a subspace $V$ of $\mathbb{R}^{n}$ form a \textit{basis} of $V$ if they span $V$ and are linearly independent.
+\end{enumerate}
+\par\noindent *We call the first vector, $\vec{v_{1}}$ redundant if it is the zero vector. This agrees with the convention that the \textit{empty linear combination} of vectors is the zero vector.
+\textbf{Theorem 3.2.4}\\
+\par\noindent\textbf{Basis of the image}
+\par\noindent To construct a basis of the image of a matrix $A$, list all the column vectors of $A$, and omit the redundant vectors from this list.
+\textbf{Theorem 3.2.5}\\
+\par\noindent\textbf{Linear independence and zero components}
+\par\noindent Consider vectors $\vec{v_{1}},\ldots{},\vec{v_{m}}$ in $\mathbb{R}^{n}$. If $\vec{v_{1}}$ is nonzero, and if each of the vectors $\vec{v_{i}}$ has a nonzero entry in a component where all the preceding vectors $\vec{v_{1}},\ldots{},\vec{v_{i-1}}$ have a $0$, then the vectors $\vec{v_{1}},\ldots{},\vec{v_{m}}$ are linearly independent.
+\textbf{Definition 3.2.6}\\
+\par\noindent\textbf{Linear Relations}
+\par\noindent Consider the vectors $\vec{v_{1}},\ldots{},\vec{v_{m}}$ in $\mathbb{R}^{n}$. An equation of the form
+\[c_{1}\vec{v_{1}}+\cdots{}+c_{m}\vec{v_{m}}=\vec{0}\]
+\par\noindent is called a (linear) \textit{relation} among the vectors $\vec{v_{1}},\ldots{},\vec{v_{m}}$. There is always the \textit{trivial relation}, with $c_{1}=\cdots{}=c_{m}=0$. \textit{Nontrivial relations} (where at least one coefficient $c_{i}$ is nonzero) may or may not exist among the vectors $\vec{v_{1}},\ldots{},\vec{v_{m}}$.
+\textbf{Theorem 3.2.7}\\
+\par\noindent\textbf{Relations and linear dependence}
+\par\noindent The vectors $\vec{v_{1}},\ldots{},\vec{v_{m}}$ in $\mathbb{R}^{n}$ are linearly dependent if (and only if) there are nontrivial relations among them.
+\textbf{Theorem 3.2.8}\\
+\par\noindent\textbf{Kernel and relations}
+\par\noindent The vectors in the kernel of an $n\times{}m$ matrix $A$ correspond to the linear relations among the column vectors $\vec{v_{1}},\ldots{},\vec{v_{m}}$ of $A$: The equation
+\[A\vec{x}=\vec{0}\quad\textrm{means that}\quad{}x_{1}\vec{v_{1}}+\cdots{}+x_{m}\vec{v_{m}}=\vec{0}.\]
+\par\noindent In particular, the column vectors of $A$ are linearly independent if (and only if) $\textrm{ker}(A)=\{\vec{0}\}$, or, equivalently, if $\textrm{rank}(A)=m$. This condition implies that $m\le{}n$.
+\par\noindent Thus, we can find at most $n$ linearly independent vectors in $\mathbb{R}^{n}$.
+\textbf{Summary 3.2.9}\\
+\par\noindent\textbf{Various characterizations of linear independence}
+\par\noindent For a list $\vec{v_{1}},\ldots{},\vec{v_{m}}$ of vectors in $\mathbb{R}^{n}$, the following statements are equivalent:
+\renewcommand{\labelenumi}{\textbf{\roman{enumi}.}}
+\begin{enumerate}
+\item Vectors $\vec{v_{1}},\ldots{},\vec{v_{m}}$ are linearly independent.
+\item None of the vectors $\vec{v_{1}},\ldots{},\vec{v_{m}}$ is redundant, meaning that none of them is a linear combination of the preceding vectors.
+\item None of the vectors $\vec{v_{i}}$ is a linear combination of the other vectors $\vec{v_{1}},\ldots{},\vec{v_{i-1}},\vec{v_{i+1}},\ldots{},\vec{v_{m}}$ in the list.
+\item There is only the trivial relation among the vectors $\vec{v_{1}},\ldots{},\vec{v_{m}}$, meaning that the equation $c_{1}\vec{v_{1}}+\cdots{}+c_{m}\vec{v_{m}}=\vec{0}$ has only the solution $c_{1}=\cdots{}=c_{m}=0$.
+\item $\displaystyle\textrm{ker}\left[\begin{array}{ccc} |& &|\\ \vec{v_{1}}&\cdots{}&\vec{v_{m}}\\ |& &|\end{array}\right]=\{\vec{0}\}$.
+\item $\displaystyle\textrm{rank}\left[\begin{array}{ccc} |& &|\\ \vec{v_{1}}&\cdots{}&\vec{v_{m}}\\ |& &|\end{array}\right]=m$.
+\end{enumerate}
+\textbf{Theorem 3.2.10}\\
+\par\noindent\textbf{Basis and unique representation}
+\par\noindent Consider the vectors $\vec{v_{1}},\ldots{},\vec{v_{m}}$ in a subspace $V$ of $\mathbb{R}^{n}$.
+\par\noindent The vectors $\vec{v_{1}},\ldots{},\vec{v_{m}}$ form a basis of $V$ if (and only if) every vector $\vec{v}$ in $V$ can be expressed \textit{uniquely} as a linear combination
+\[\vec{v}=c_{1}\vec{v_{1}}+\cdots{}+c_{m}\vec{v_{m}}.\]
+\par\noindent (In subSection 3.4, we will call the coefficients $c_{1},\ldots{},c_{m}$ the \textit{coordinates} of $\vec{v}$ with respect to the basis $\vec{v_{1}},\ldots{},\vec{v_{m}}$.
+\pagebreak
+
+\subsection{The Dimension of a Subspace of \texorpdfstring{$\mathbb{R}^{n}$}{R^n}}
+\textbf{Theorem 3.3.1}\\
+\par\noindent Consider vectors $\vec{v_{1}},\ldots{},\vec{v_{p}}$ and $\vec{_{1}},\ldots{},\vec{w_{q}}$ in a subspace $V$ of $\mathbb{R}^{n}$. If the vectors $\vec{v_{1}},\ldots{},\vec{v_{p}}$ are linearly independent, and the vectors $\vec{w_{1}},\ldots{},\vec{w_{q}}$ span $V$, then $q\ge{}p$.
+\textbf{Theorem 3.3.2}\\
+\par\noindent\textbf{Number of vectors in a basis}
+\par\noindent All bases of a subspace $V$ of $\mathbb{R}^{n}$ consist of the same number of vectors.
+\textbf{Definition 3.3.3}\\
+\par\noindent\textbf{Dimension}
+\par\noindent Consider a subspace $V$ of $\mathbb{R}^{n}$. The number of vectors in a basis of $V$ is called the \textit{dimension} of $V$, denoted by $\textrm{dim}(V)$.
+\textbf{Theorem 3.3.4}\\
+\subsubsection*{Finding Bases of Kernel and Image}
+\par\noindent\textbf{Independent vectors and spanning vectors in a subspace of $\mathbb{R}^{n}$}
+\par\noindent Consider a subspace $V$ of $\mathbb{R}^{n}$ with $\textrm{dim}(V)=m$.
+\renewcommand{\labelenumi}{\textbf{\alph{enumi}.}}
+\begin{enumerate}
+\item We can find \textit{at most} $m$ linearly independent vectors in $V$.
+\item We need \textit{at least} $m$ vectors to span $V$.
+\item If $m$ vectors in $V$ are linearly independent, then they form a basis of $V$.
+\item If $m$ vectors in $V$ span $V$, then they form a basis of $V$.
+\end{enumerate}
+\textbf{Theorem 3.3.5}\\
+\par\noindent\textbf{Using rref to construct a basis of the image}
+\par\noindent To construct a basis of the image of $A$, pick the column vectors of $A$ that correspond to the columns of $\textrm{rref}(A)$ containing the leading $1$'s.
+\textbf{Theorem 3.3.6}\\
+\par\noindent\textbf{Dimension of the image}
+\par\noindent For any matrix $A$, $\textrm{dim}(\textrm{im}\;{}A)=\textrm{rank}(A)$.
+\textbf{Theorem 3.3.7}\\
+\par\noindent\textbf{Rank-nullity theorem}
+\par\noindent For any $n\times{}m$ matrix $A$, the equation
+\[\textrm{dim}(\textrm{ker}\;{}A)+\textrm{dim}(\textrm{im}\;{}A)=m\]
+\par\noindent holds. The dimension of $\textrm{ker}(A)$ is called the \textit{nullity} of $A$, and in Theorem 3.3.6 we observed that $\textrm{dim}(\textrm{im}\;{}A)=\textrm{rank}(A)$. Thos, we can write the preceeding equation alternatively as
+\[(\textrm{nullity of}\;{}A)+(\textrm{rank of}\;{}A)=m\]
+\par\noindent Some authors go as far as to call this the \textit{fundamental theorem of linear algebra}.
+\textbf{Theorem 3.3.8}\\
+\par\noindent\textbf{Finding bases of the kernel and image by inspection}
+\par\noindent Suppose you are able to spot the redundant columns of matrix $A$.
+\par\noindent Express each redundant column as a linear combination of the preceding columns, $\vec{v_{i}}=c_{1}\vec{v_{1}}+\cdots{}+c_{i-1}\vec{v_{i-1}}$; write a corresponding relation, $-c_{1}\vec{v_{1}}-\cdots{}-c_{i-1}\vec{v_{i-1}}+\vec{v_{i}}=\vec{0}$; and generate the vector
+\[\left[\begin{array}{c}-c{1}\\ \vdots{} \\ -c_{i-1} \\ 1 \\ 0 \\ \vdots{} \\ 0\end{array}\right]\]
+\par\noindent in the kernel of $A$. The vectors so constructed form a basis of the kernel of $A$.
+\par\noindent The nonredundant columns form a basis of the image of $A$.
+\subsubsection*{Bases of $\mathbb{R}^{n}$}
+\textbf{Theorem 3.3.9}\\
+\par\noindent\textbf{Bases of $\mathbb{R}^{n}$}
+\par\noindent The vectors $\vec{v_{1}},\ldots{},\vec{v_{n}}$ in $\mathbb{R}^{n}$ form a basis of $\mathbb{R}^{n}$ if (and only if) the matrix
+\[\left[\begin{array}{ccc}|& &|\\ \vec{v_{1}}&\cdots{}&\vec{v_{n}}\\ |& &|\end{array}\right]\]
+\par\noindent is invertible.
+\textbf{Summary 3.3.10}\\
+\par\noindent\textbf{Various characterizations of invertible matrices}
+\par\noindent For an $n\times{}n$ matrix $A$, the following statements are equivalent.
+\renewcommand{\labelenumi}{\textbf{\roman{enumi}.}}
+\begin{enumerate}
+\item $A$ is invertible
+\item The linear system $A\vec{x}=\vec{b}$ has a unique solution $\vec{x}$, for all $\vec{b}$ in $\mathbb{R}^{n}$.
+\item $\textrm{rref}(A)=I_{n}$.
+\item $\textrm{rank}(A)=n$.
+\item $\textrm{im}(A)=\mathbb{R}^{n}$.
+\item $\textrm{ker}(A)=\{\vec{0}\}$.
+\item The column vectors of $A$ form a basis of $\mathbb{R}^{n}$.
+\item The column vectors of $A$ span $\mathbb{R}^{n}$.
+\item The column vectors of $A$ are linearly independent.
+\end{enumerate}
+\pagebreak
+
+\subsection{Coordinates}
+\textbf{Definition 3.4.1}\\
+\par\noindent\textbf{Coordinates in a subspace of $\mathbb{R}^{n}$}
+\par\noindent Consider a basis $\mathfrak{B}=(\vec{v_{1}},\vec{v_{2}},\ldots{},\vec{v_{m}})$ of a subspace $V$ of $\mathbb{R}^n$. By Theorem 3.2.10, any vector $\vec{x}$ in $V$ can be written uniquely as
+\[\vec{x}=c_{1}\vec{v_{1}}+c_{2}\vec{v_{2}}+\cdots{}+c_{m}\vec{v_{m}}.\]
+\par\noindent The scalars $c_{1},c_{2},\ldots{},c_{m}$ are called the $\mathfrak{B}$-\textit{coordinates} of $\vec{x}$, and the vector
+\[\left[\begin{array}{c}c_{1}\\ c_{2}\\ \vdots{}\\ c_{m}\end{array}\right]\]
+\par\noindent is the $\mathfrak{B}$-\textit{coordinate vector} of $\vec{x}$, denoted by $[\vec{x}]_{\mathfrak{B}}$. Thus,
+\par\noindent\begin{center} $\displaystyle[\vec{x}]_{\mathfrak{B}}=\left[\begin{array}{c}c_{1}\\ c_{2}\\ \vdots{}\\ c_{m}\end{array}\right]$ means that $\vec{x}=c_{1}\vec{v_{1}}+c_{2}\vec{v_{2}}+\cdots{}+c_{m}\vec{v_{m}}$.\end{center}
+\par\noindent Note that
+\par\noindent\begin{center} $\displaystyle\vec{x}=S[\vec{x}]_{\mathfrak{B}}$, where $\displaystyle S=\left[\begin{array}{cccc}|&|& &|\\ \vec{v_{1}}&\vec{v_{2}}&\cdots{}&\vec{v_{m}}\\ |&|& &|\end{array}\right]$, an $n\times{}m$ matrix.\end{center}
+\textbf{Theorem 3.4.2}\\
+\par\noindent\textbf{Linearity of Coordinates}
+\par\noindent If $\mathfrak{B}$ is a basis of subspace $V$ of $\mathbb{R}^{n}$, then
+\renewcommand{\labelenumi}{\textbf{\alph{enumi}.}}
+\begin{enumerate}
+\item $\displaystyle [\vec{x}+\vec{y}]_{\mathfrak{B}}=[\vec{x}]_{\mathfrak{B}}+[\vec{y}]_{\mathfrak{B}}$, for all vectors $\vec{x}$ and $\vec{y}$ in $V$, and
+\item $\displaystyle [k\vec{x}]_{\mathfrak{B}}=k[\vec{x}]_{\mathfrak{B}}$, for all $\vec{x}$ in $V$ and for all scalars $k$.
+\end{enumerate}
+\textbf{Theorem 3.4.3}\\
+\par\noindent\textbf{The matrix of a linear transformation}
+\par\noindent Consider a linear transformation $T$ from $\mathbb{R}^{n}$ to $\mathbb{R}^{n}$ and a basis $\mathfrak{B}=(\vec{v_{1}},\ldots{},\vec{v_{n}})$ of $\mathbb{R}^{n}$. Then there exists a unique $n\times{}n$ matrix $B$ that transforms $[\vec{x}]_{\mathfrak{B}}$ into $[T(\vec{x})]_{\mathfrak{B}}$:
+\[[T(\vec{x})]_{\mathfrak{B}}=B[\vec{x}]_{\mathfrak{B}},\]
+\par\noindent for all $\vec{x}$ in $\mathbb{R}^{n}$. This matrix $B$ is called the $\mathfrak{B}$-\textit{matrix of }$T$. We can construct $B$ column by column, as follows:
+\[B=\left[\begin{array}{ccc}|& &|\\{} [T(\vec{v_{1}})]_{\mathfrak{B}}&\cdots{}&[T(\vec{v_{n}})]_{\mathfrak{B}}.\\ |& &|\end{array}\right].\]
+\subsubsection*{Theorem 3.4.4}
+\par\noindent\textbf{Standard matrix versus $\mathfrak{B}$-matrix}
+\par\noindent Consider a linear transformation $T$ from $\mathbb{R}^{n}$ to $\mathbb{R}^{n}$ and a basis $\mathfrak{B}=(\vec{v_{1}},\ldots{},\vec{v_{n}})$ of $\mathbb{R}^{n}$. Let $B$ be the $\mathfrak{B}$-matrix of $T$, and let $A$ be the standard matrix of $T$ [such that $T(\vec{x})=A\vec{x}$ for all $\vec{x}$ in $\mathbb{R}^{n}$]. Then
+\par\noindent $AS=SB$, $B=S^{-1}AS$, and $A=SBS^{-1}$, where $\displaystyle S=\left[\begin{array}{ccc}|& &|\\ \vec{v_{1}}&\cdots{}&\vec{v_{n}}\\ |& &|\end{array}\right]$.
+\textbf{Definition 3.4.5}\\
+\par\noindent\textbf{Similar matrices}
+\par\noindent Consider two $n\times{}n$ matrices $A$ and $B$. We say that $A$ is similar to $B$ if there exists an invertible matrix $S$ such that
+\par\noindent\begin{center}$AS=SB$, or $B=S^{-1}AS$\end{center}
+\textbf{Theorem 3.4.6}\\
+\par\noindent\textbf{Similarity is an equivalence relation}
+\renewcommand{\labelenumi}{\textbf{\alph{enumi}.}}
+\begin{enumerate}
+\item An $n\times{}n$ matrix $A$ is similar to $A$ itself (\textit{reflexivity}).
+\item If $A$ is similar to $B$, then $B$ is similar to $A$ (\textit{symmetry}).
+\item If $A$ is similar to $B$ and $B$ is similar to $C$, then $A$ is similar to $C$ (\textit{transitivity}).
+\end{enumerate}
+\textbf{Theorem 3.4.7}\\
+\par\noindent\textbf{When is the $\mathfrak{B}$-matrix of $T$ diagonal?}
+\par\noindent Consider a linear transformation $T(\vec{x})=A\vec{x}$ from $\mathbb{R}^{n}$ to $\mathbb{R}^{n}$. Let $\mathfrak{B}=(\vec{v_{1}},\ldots{},\vec{v_{n}})$ be a basis of $\mathbb{R}^{n}$.
+\par\noindent Then the $\mathfrak{B}$-matrix $B$ of $T$ is \textit{diagonal} if and only if $T(\vec{v_{1}})=c_{1}\vec{v_{1}},\ldots{},T(\vec{v_{n}})=c_{n}\vec{v_{n}}$ for some scalars $c_{1},\ldots{},c_{n}$.
+\par\noindent From a geometrical point of view, this means that $T(\vec{v_{j}})$ is \textit{parallel} to $\vec{v_{j}}$ for all $j=1,\ldots{},n$.
+
+
+\section{Linear Spaces}
+
+\subsection{Introduction to Linear Spaces}
+\textbf{Definition 4.1.1}\\
+\par\noindent\textbf{Linear spaces (or vector spaces)}
+\par\noindent A \textit{linear space} $V$ is a set endowed with a rule for addition (if $f$ and $g$ are in $V$, then so is $f+g$) and a rule for scalar multiplication (if $f$ is in $V$ and $k$ in $\mathbb{R}$, then $kf$ is in $V$) such that the operations satisfy the following eight rules (for all $f$, $g$, $h$ in $V$ and all $c$, $k$ in $\mathbb{R}$):
+\renewcommand{\labelenumi}{\textbf{\arabic{enumi}}.}
+\begin{enumerate}
+\item $(f+g)+h=f+(g+h)$.
+\item $f+g=g+f$.
+\item There exists a \textit{neutral element} $n$ in $V$ such that $f+n=f$, for all $f$ in $V$. This $n$ is unique and denoted by $0$.
+\item For each $f$ in $V$, there exists a $g$ in $V$ such that $f+g=0$. This $g$ is unique and denoted by $(-f)$.
+\item $k(f+g)=kf+kg$.
+\item $(c+k)f=cf+ck$.
+\item $c(kf)=(ck)f$.
+\item $1f=f$.
+\end{enumerate}
+\textbf{Definition 4.1.2}\\
+\par\noindent\textbf{Subspaces}
+\par\noindent A subset $W$ of a linear space $V$ is called a \textit{subspace} of $V$ if
+\renewcommand{\labelenumi}{\textbf{\alph{enumi}.}}
+\begin{enumerate}
+\item $W$ contains the neutral element $0$ of $V$.
+\item $W$ is closed under addition (if $f$ and $g$ are in $W$, then so is $f+g$).
+\item $W$ is closed under scalar multiplication (if $f$ is in $W$ and $k$ is a scalar, then $kf$ is in $W$).
+\end{enumerate}
+\par\noindent We can summarize parts b and c by saying that $W$ is closed under linear combinations.
+\textbf{Definition 4.1.3}\\
+\par\noindent\textbf{Span, linear independence, basis, coordinates}
+\par\noindent Consider the elements $f_{1},\ldots{},f_{n}$ in a linear space $V$.
+\renewcommand{\labelenumi}{\textbf{\alph{enumi}.}}
+\begin{enumerate}
+\item We say that $f_{1},\ldots{},f_{n}$ \textit{span} $V$ if every $f$ in $V$ can be expressed as a linear combination of $f_{1},\ldots{},f_{n}$.
+\item We say that $f_{i}$ is \textit{redundant} if it is a linear combination of $f_{1},\ldots{},f_{i-1}$. The elements $f_{1},\ldots{},f_{n}$ are called \textit{linearly independent} if none of them is redundant. This is the case if the equation
+\[c_{1}f_{1}+\cdots{}+c_{n}f_{n}=0\]
+\par\noindent has only the trivial solution
+\[c_{1}=\cdots{}=c_{n}=0.\]
+\item We say that elements $f_{1},\ldots{},f_{n}$ are a \textit{basis} of $V$ if they span $V$ and are linearly independent. This means that every $f$ in $V$ can be written uniquely as a linear combination $f=c_{1}f_{1}+\cdots{}+c_{n}f_{n}$. The coefficients $c_{1},\ldots{},c_{n}$ are called the \textit{coordinates} of $f$ with respect to the basis $\mathfrak{B}=(f_{1},\ldots{},f_{n})$. The vector
+\[\left[\begin{array}{c}c_{1}\\ c_{2}\\ \vdots{}\\ c_{n}\end{array}\right]\]
+\par\noindent in $\mathbb{R}^{n}$ is called the $\mathfrak{B}$-\textit{coordinate vector} of $f$, denoted by $[f]_{\mathfrak{B}}$.
+\par\noindent The transformation
+\par\noindent\begin{center}$\displaystyle L(f)=[f]_{\mathfrak{B}}=\left[\begin{array}{c}c_{1}\\ \vdots{}\\ c_{n}\end{array}\right]$ from $V$ to $\mathbb{R}^{n}$\end{center}
+\par\noindent is called the $\mathfrak{B}$-\textit{coordinate transformation}, sometimes denoted by $L_{\mathfrak{B}}$.
+\end{enumerate}
+\textbf{Theorem 4.1.4}\\
+\par\noindent\textbf{Linearity of the coordinate transformation $L_{\mathfrak{B}}$}
+\par\noindent If $\mathfrak{B}$ is a basis of a linear space $V$, then
+\renewcommand{\labelenumi}{\textbf{\alph{enumi}.}}
+\begin{enumerate}
+\item $[f+g]_{\mathfrak{B}}=[f]_{\mathfrak{B}}+[g]_{\mathfrak{B}}$, for all elements $f$ and $g$ of $V$, and
+\item $[kf]_{\mathfrak{B}}=k[f]_{\mathfrak{B}}$, for all $f$ in $V$ and for all scalars $k$.
+\end{enumerate}
+\textbf{Theorem 4.1.5}\\
+\par\noindent\textbf{Dimension}
+\par\noindent If a linear space $V$ has a basis with $n$ elements, then all other bases of $V$ consist of $n$ elements as well. We say that $n$ is the \textit{dimension} of $V$:
+\[\textrm{dim}(V)=n.\]
+\textbf{Summary 4.1.6}\\
+\par\noindent\textbf{Finding a basis of a linear space $V$}
+\renewcommand{\labelenumi}{\textbf{\alph{enumi}.}}
+\begin{enumerate}
+\item Write down a typical element of $V$, in terms of some arbitrary constants.
+\item Using the arbitrary constants as coefficients, express your typical element as a linear combination of some elements of $V$.
+\item Verify that the elements of $V$ in this linear combination are linearly independent; then they will form a basis of $V$.
+\end{enumerate}
+\textbf{Theorem 4.1.7}\\
+\par\noindent\textbf{Linear differential equations}
+\par\noindent The solutions of the differential equation
+\par\noindent\begin{center}$f''(x)+af'(x)+bf(x)=0$ (where $a$ and $b$ are constants)\end{center}
+\par\noindent form a two-dimensional subspace of the space $C^{\infty}$ of smooth functions.
+\par\noindent More generally, the solutions of the differential equation
+\par\noindent\begin{center}$f^{(n)}(x)+a_{n-1}f^{n-1}(x)+\cdots{}+a_{1}f'(x)+a_{0}f(x)=0$\end{center}
+\par\noindent (where $a_{0},\ldots{},a_{n-1}$ are constants) form an $n$-dimensional subspace of $C^{\infty}$. A differential equation of this form is called an $n$th-\textit{order linear differential equation with constant coefficients}.
+\textbf{Definition 4.1.8}\\
+\par\noindent\textbf{Finite dimensional linear spaces}
+\par\noindent A linear space $V$ is called \textit{finite dimensional} if it has a (finite) basis $f_{1},\ldots{},f_{n}$, so that we can define its dimension $\textrm{dim}(V)=n$. See Definition 4.1.5. Otherwise, the space is called \textit{infinite dimensional}.
+
+\subsection{Linear Transformations and Isomorphisms}
+\textbf{Definition 4.2.1}\\
+\par\noindent\textbf{Linear transformations, image, kernel, rank, nullity}
+\par\noindent Consider two linear spaces $V$ and $W$. A function $T$ from $V$ to $W$ is called a \textit{linear transformation} if
+\[T(f+g)=T(f)+T(g)\quad{}\textrm{and}\quad{}T(kf)=kT(f)\]
+\par\noindent for all elements $f$ and $g$ of $V$ and for all scalars $k$. These two rules are referred to as the \textit{sum rule} and the \textit{constant-multiple rule}, respectively.
+\par\noindent For a linear transformation $T$ from $V$ to $W$, we let
+\[\textrm{im}(T)=\{T(f):f\textrm{ in }V\}\]
+\par\noindent and
+\[\textrm{ker}(T)=\{f\textrm{ in }V:T(f)=0\}.\]
+\par\noindent Note that $\textrm{im}(T)$ is a subspace of target space $W$ and that $\textrm{ker}(T)$ is a subspace of domain $V$.
+\par\noindent If the image of $T$ is finite dimensional, then $\textrm{dim}(\textrm{im}T)$ is called the \textit{rank} of $T$, and if the kernel of $T$ is finite dimensional, then $\textrm{dim}(\textrm{ker}T)$ is the \textit{nullity} of $T$.
+\par\noindent If $V$ is finite dimensional, then the rank-nullity theorem holds. See Theorem 3.3.7:
+\[\textrm{dim}(V)=\textrm{rank}(T)+\textrm{nullity}(T)=\textrm{dim}(\textrm{im}T)+\textrm{dim}(\textrm{ker}(T)).\]
+\textbf{Definition 4.2.2}\\
+\par\noindent\textbf{Isomorhpisms and isomorphic spaces}
+\par\noindent An invertible linear transformation $T$ is called an \textit{isomorphism}. We say that the linear space $V$ is isomorphic to the linear space $W$ if there exists an isomorphism $T$ from $V$ to $W$.
+\textbf{Theorem 4.2.3}\\
+\par\noindent\textbf{Coordinate transformations are isomorphisms}
+\par\noindent If $\mathfrak{B}=(f_{1},f_{2},\ldots{},f_{n})$ is a basis of a linear space $V$, then the \textit{coordinate transformation} $L_{\mathfrak{B}}(f)=\left[f\right]_{\mathfrak{B}}$ from $V$ to $\mathbb{R}^{n}$ is an isomorphism. Thus, $V$ is isomorphic to $\mathbb{R}^{n}$; the linear spaces $V$ and $\mathbb{R}^{n}$ have the same structure.
+\textbf{Theorem 4.2.4}\\
+\par\noindent\textbf{Properties of isomorphisms}
+\renewcommand{\labelenumi}{\textbf{\alph{enumi}.}}
+\begin{enumerate}
+\item A linear transformation $T$ from $V$ to $W$ is an isomorphism if (and only if) $\textrm{ker}(T)=\{0\}$ and $\textrm{im}(T)=W$.
+\par\noindent\textit{In parts (b) through (d), the linear spaces $V$ and $W$ are assumed to be finite dimensional.}
+\item The linear space $V$ is isomorphic to $W$ if (and only if) $\textrm{dim}(V)=\textrm{dim}(W)$.
+\item Suppose $T$ is a linear transformation from $V$ to $W$ with $\textrm{ker}(T)=\{0\}$. If $\textrm{dim}(V)=\textrm{dim}(W)$, then $T$ is an isomorphism.
+\item Suppose $T$ is a linear transformation from $V$ to $W$ with $\textrm{im}(T)=W$. If $\textrm{dim}(V)=\textrm{dim}(W)$, then $T$ is an isomorphism.
+\end{enumerate}
+
+\subsection{The Matrix of a Linear Transformation}
+\textbf{Definition 4.3.1}\\
+\par\noindent\textbf{The $\mathfrak{B}$-matrix of a linear transformation}
+\par\noindent Consider a linear transformation $T$ from $V$ to $V$, where $V$ is an $n$-dimensional linear space. Let $\mathfrak{B}$ be a basis of $V$. Consider the linear transformation $L_{\mathfrak{B}}\circ{}T\circ{}L_{\mathfrak{B}}^{-1}$ from $\mathbb{R}^{n}$ to $\mathbb{R}^{n}$, with standard matrix $B$, meaning that $B\vec{x}=L_{\mathfrak{B}}(T(L_{\mathfrak{B}}^{-1}(\vec{x})))$. This matrix $B$ is called the $\mathfrak{B}$-matrix of transformation $T$. Letting $f=L_{\mathfrak{B}}^{-1}(\vec{x})$ and $\vec{x}=\left[f\right]_{\mathfrak{B}}$, we find that
+\[\left[T(f)\right]_{\mathfrak{B}}=B\left[f\right]_{\mathfrak{B}},\qquad\textrm{for all }f\textrm{ in }V.\]
+\textbf{Theorem 4.3.2}\\
+\par\noindent\textbf{The columns of the $\mathfrak{B}$-matrix of a linear transformation}
+\par\noindent Consider a linear transformation $T$ from $V$ to $V$, and let $B$ be the matrix of $T$ with respect to a basis $\mathfrak{B}=(f_{1},f_{2},\ldots{},f_{n})$ of $V$. Then
+\[B=\left[\begin{array}{ccc}|&&|\\{} [T(f_{1})]_{\mathfrak{B}}&\cdots{}&[T(f_{n})]_{\mathfrak{B}}\\ |&&|\\ \end{array}\right].\]
+\par\noindent The columns of $B$ are the $\mathfrak{B}$-coordinate vectors of the transforms of the basis elements $f_{1},\ldots{},f_{n}$ of $V$.
+\textbf{Definition 4.3.3}\\
+\par\noindent\textbf{Change of basis matrix}
+\par\noindent Consider two bases $\mathfrak{A}$ and $\mathfrak{B}$ of an $n$-dimensional linear space $V$. Consider the linear transformation $L_{\mathfrak{A}}\circ{}L_{\mathfrak{B}}^{-1}$ from $\mathbb{R}^{n}$ to $\mathbb{R}^{n}$, with standard matrix $S$, meaning that $S\vec{x}=L_{\mathfrak{A}}(L_{\mathfrak{B}}^{-1}(\vec{x}))$ for all $\vec{x}$ in $\mathbb{R}^{n}$. This invertible matrix $S$ is called the \textit{change of basis matrix} from $\mathfrak{B}$ to $\mathfrak{A}$, sometimes denoted by $S_{\mathfrak{B}\rightarrow{}\mathfrak{A}}$. Letting $f=L_{\mathfrak{B}}^{-1}(\vec{x})$ and $\vec{x}=[f]_{\mathfrak{B}}$, we find that
+\[[f]_{\mathfrak{A}}=S[f]_{\mathfrak{B}},\quad{}\textrm{for all }f\textrm{ in }V.\]
+\par\noindent If $\mathfrak{B}=(b_{1},\ldots{},b_{i},\ldots{},b_{n})$, then
+\[[b_{i}]_{\mathfrak{A}}=S[b_{i}]_{\mathfrak{B}}=S\vec{e}_{i}=(i\textrm{th column of }S),\]
+\par\noindent so that
+\[S_{\mathfrak{B}\rightarrow\mathfrak{A}}=\left[\begin{array}{ccc}|&&|\\{} [b_{1}]_{\mathfrak{A}}&\cdots{}&[b_{n}]_{\mathfrak{A}}\\{} |&&|\end{array}\right].\]
+\textbf{Theorem 4.3.4}\\
+\par\noindent\textbf{Change of basis in a subspace of $\mathbb{R}^{n}$}
+\par\noindent Consider a subspace $V$ of $\mathbb{R}^{n}$ with two bases $\mathfrak{A}=(\vec{a_{1}},\ldots{},\vec{a_{m}})$ and $\mathfrak{B}=(\vec{b_{1}},\ldots{},\vec{b_{m}})$. Let $S$ be the change of basis matrix from $\mathfrak{B}$ to $\mathfrak{A}$. Then the following equation holds:
+\[\left[\begin{array}{ccc}|&&|\\{} \vec{b_{1}}&\cdots{}&\vec{b_{m}}\\{} |&&|\end{array}\right]=\left[\begin{array}{ccc}|&&|\\{} \vec{a_{1}}&\cdots{}&\vec{a_{m}}\\{} |&&|\end{array}\right]S.\]
+\textbf{Theorem 4.3.5}\\
+\par\noindent\textbf{Change of basis for the matrix of a linear transformation}
+\par\noindent Let $V$ be a linear space with two given bases $\mathfrak{A}$ and $\mathfrak{B}$. Consider a linear transformation $T$ from $V$ to $V$, and let $A$ and $B$ be the $\mathfrak{A}$-matrix and $\mathfrak{B}$-matrix of $T$, respectively. Let $S$ be the change of basis matrix from $\mathfrak{B}$ to $\mathfrak{A}$. Then $A$ is similar to $B$, and
+\[AS=SB\quad{}\textrm{or}\quad{}A=sBS^{-1}\quad{}\textrm{or}\quad{}B=S^{-1}AS.\]
+
+\section{Orthogonality and Least Squares}
+
+\subsection{Orthogonal Projections and Orthonormal Bases}
+\textbf{Definition 5.1.1}\\
+\par\noindent\textbf{Orthogonality, length, unit vectors}
+\renewcommand{\labelenumi}{\textbf{\alph{enumi}.}}
+\begin{enumerate}
+\item Two vectors $\vec{v}$ and $\vec{w}$ in $\mathbb{R}^{n}$ are called \textit{perpendicular} or \textit{orthogonal} if $\vec{v}\cdot\vec{w}=0$.
+\item The \textit{length} (or magnitude or norm) of a vector $\vec{v}$ in $\mathbb{R}^{n}$ is $||\vec{v}||=\sqrt[]{\vec{v}\cdot\vec{v}}$.
+\item A vector $\vec{u}$ in $\mathbb{R}^{n}$ is called a \textit{unit vector} if its length is $1$, (i.e., $||\vec{u}||=1$, or $\vec{u}\cdot\vec{u}=1$).
+\end{enumerate}
+\textbf{Definition 5.1.2}\\
+\par\noindent\textbf{Orthonormal vectors}
+\par\noindent The vectors $\vec{u_{1}},\vec{u_{2}},\ldots{},\vec{u_{m}}$ in $\mathbb{R}^{n}$ are called \textit{orthonormal} if they are all unit vectors and orthogonal to one another:
+\[\vec{u_{i}}\cdot{}\vec{u_{j}}=\begin{cases}1 & \textrm{if }i=j\\ 0 & \textrm{if } i\ne{}j\end{cases}\]
+\textbf{Theorem 5.1.3}\\
+\par\noindent\textbf{Properties of orthonormal vectors}
+\renewcommand{\labelenumi}{\textbf{\alph{enumi}.}}
+\begin{enumerate}
+\item Orthonormal vectors are linearly independent.
+\item Orthonormal vectors $\vec{u_{1}},\ldots{},\vec{u_{n}}$ in $\mathbb{R}^{n}$ form a basis of $\mathbb{R}^{n}$.
+\end{enumerate}
+\textbf{Theorem 5.1.4}\\
+\par\noindent\textbf{Orthogonal Projection}
+\par\noindent Consider a vector $\vec{x}$ in $\mathbb{R}^{n}$ and a subspace $V$ of $\mathbb{R}^{n}$. Then we can write
+\[\vec{x}=\vec{x}^{\parallel}+\vec{x}^{\perp},\]
+\par\noindent where $\vec{x}^{\parallel}$ is in $V$ and $\vec{x}^{\perp}$ is perpendicular to $V$, and this representation is unique.
+\par\noindent The vector $\vec{x}^{\parallel}$ is called the \textit{orthogonal projection} of $\vec{x}$ onto $V$, denoted by $\textrm{proj}_{V}\vec{x}$.
+\par\noindent The transformation $T(\vec{x})=\textrm{proj}_{V}\vec{x}=\vec{x}^{\parallel}$ from $\mathbb{R}^{n}$ to $\mathbb{R}^{n}$ is linear.
+\textbf{Theorem 5.1.5}\\
+\par\noindent\textbf{Formula for the orthogonal projection}
+\par\noindent If $V$ is a subspace of $\mathbb{R}^{n}$ with an orthonormal basis $\vec{u_{1}},\ldots{},\vec{u_{m}}$, then
+\[\textrm{proj}_{V}\vec{x}=\vec{x}^{\parallel}=(\vec{u_{1}}\cdot{}\vec{x})\vec{u_{1}}+\cdots{}+(\vec{u_{m}}\cdot{}\vec{x})\vec{u_{m}},\]
+\par\noindent for all $\vec{x}$ in $\mathbb{R}^{n}$.
+\textbf{Theorem 5.1.6}\\
+\par\noindent Consider an orthonormal basis $\vec{u_{1}},\ldots{},\vec{u_{n}}$ of $\mathbb{R}^{n}$. Then
+\[\vec{x}=(\vec{u_{1}}\cdot{}\vec{x})\vec{u_{1}}+\cdots{}+(\vec{u_{n}}\cdot{}\vec{x})\vec{u_{n}},\]
+\par\noindent for all $\vec{x}$ in $\mathbb{R}^{n}$.
+\textbf{Definition 5.1.7}\\
+\par\noindent\textbf{Orthogonal Complement}
+\par\noindent Consider a subspace $V$ of $\mathbb{R}^{n}$. The \textit{orthogonal complement} $V^{\perp}$ of $V$ is the set of those vectors $\vec{x}$ in $\mathbb{R}^{n}$ that are orthogonal to all vectors in $V$:
+\[V^{\perp}=\{\vec{x}\textrm{ in }\mathbb{R}^{n}:\vec{v}\cdot{}\vec{x}=0,\textrm{ for all }\vec{v}\textrm{ in }V\}.\]
+\par\noindent Note that $V^{\perp}$ is the kernel of the orthogonal projection onto $V$.
+\textbf{Theorem 5.1.8}\\
+\par\noindent\textbf{Properties of the orthogonal complement}
+\par\noindent Consider a subspace $V$ of $\mathbb{R}^{n}$.
+\renewcommand{\labelenumi}{\textbf{\alph{enumi}.}}
+\begin{enumerate}
+\item The orthogonal complement $V^{\perp}$ of $V$ is a subspace of $\mathbb{R}^{n}$.
+\item The intersubsection of $V$ and $V^{\perp}$ consists of the zero vector: $V\cap{}V^{\perp}=\{\vec{0}\}$.
+\item $\textrm{dim}(V)+\textrm{dim}(V^{\perp})=n$.
+\item $\displaystyle (V^{\perp})^{\perp}=V$.
+\end{enumerate}
+\textbf{Theorem 5.1.9}\\
+\par\noindent\textbf{Pythagorean theorem}
+\par\noindent Consider two vectors $\vec{x}$ and $\vec{y}$ in $\mathbb{R}^{n}$. The equation
+\[||\vec{x}+\vec{y}||^{2}=||\vec{x}||^{2}+||\vec{y}||^{2}\]
+\par\noindent holds if (and only if) $\vec{x}$ and $\vec{y}$ are orthogonal.
+\textbf{Theorem 5.1.10}\\
+\par\noindent\textbf{An inequality for the magnitude of $\textrm{proj}_{V}(\vec{x})$}
+\par\noindent Consider a subspace $V$ of $\mathbb{R}^{n}$ and a vector $\vec{x}$ in $\mathbb{R}^{n}$. Then
+\[||\textrm{proj}_{V}\vec{x}||\le{}||\vec{x}||.\]
+\par\noindent The statement is an equality if (and only if) $\vec{x}$ is in $V$.
+\textbf{Theorem 5.1.11}\\
+\par\noindent\textbf{Cauchy-Schwarz inequality}
+\par\noindent If $\vec{x}$ and $\vec{y}$ are vectors in $\mathbb{R}^{n}$, then
+\[|\vec{x}\cdot{}\vec{y}|\le{}||\vec{x}||\,||\vec{y}||.\]
+\par\noindent This statement is an equality if (and only if) $\vec{x}$ and $\vec{y}$ are parallel.
+\subparagraph*{Definition 5.1.12}
+\par\noindent\textbf{Angle between two vectors}
+\par\noindent Consider two nonzero vectors $\vec{x}$ and $\vec{y}$ in $\mathbb{R}^{n}$. The angle $\theta$ between these vectors is defined as
+\[\theta{}=\arccos{}\frac{\vec{x}\cdot{}\vec{y}}{||\vec{x}||\,||\vec{y}||}\]
+
+\subsection{Gram-Schmidt Process and $QR$ Factorization}
+\textbf{Theorem 5.2.1}\\
+\par\noindent\textbf{The Gram-Schmidt process}
+\par\noindent Consider a basis $\vec{v_{1}},\ldots{},\vec{v_{m}}$ of a subspace $V$ of $\mathbb{R}^{n}$. For $j=2,\ldots{},m$, we resolve the vector $\vec{v_{j}}$ into its components parallel and perpendicular to the span of the preceeding vectors, $\vec{v_{1}},\ldots{},\vec{v_{j-1}}$:
+\[\vec{v_{j}}=\vec{v_{j}}^{\parallel}+\vec{v_{j}}^{\perp},\quad{}\textrm{with respect to }\textrm{span}(\vec{v_{1}},\ldots{},\vec{v_{j-1}}).\]
+\par\noindent Then
+\[\vec{u_{1}}=\frac{1}{||\vec{v_{1}}||}\vec{v_{1}},\enspace{}\vec{u_{2}}=\frac{1}{||\vec{v_{2}}^{\perp}||}\vec{v_{2}}^{\perp},\ldots{},\enspace{}\vec{u_{j}}=\frac{1}{||\vec{v_{j}}^{\perp}||}\vec{v_{j}}^{\perp},\ldots{},\vec{u_{m}}=\frac{1}{||\vec{v_{m}}^{\perp}||}\vec{v_{m}}^{\perp}\]
+\par\noindent is an orthonormal basis of $V$. By Theorem 5.1.7, we have
+\[\vec{v_{j}}^{\perp}=\vec{v_{j}}-\vec{v_{j}}^{\parallel}=\vec{v_{j}}-(\vec{u_{1}}\cdot{}\vec{v_{j}})\vec{u_{1}}-\cdots{}-(\vec{u_{j-1}}\cdot{}\vec{v_{j}})\vec{u_{j-1}}\]
+\subsubsection*{The $QR$ Factorization}
+\textbf{Theorem 5.2.2}\\
+\par\noindent\textbf{$QR$ factorization}
+\par\noindent Consider an $n\times{}m$ matrix $M$ with linearly independent columns $\vec{v_{1}},\ldots{},\vec{v_{m}}$. Then there exists an $n\times{}m$ matrix $Q$ whose columns $\vec{u_{1}},\ldots{},\vec{u_{m}}$ are orthonormal and an upper triangular matrix $R$ with positive diagonal entries such that
+\[M=QR\]
+\par\noindent This representation is unique. Furthermore, $r_{11}=||\vec{v_{1}}||$, $r_{jj}=||\vec{v_{j}}^{\perp}||$ (for $j=2,\ldots{},m$) and $r_{ij}=\vec{u_{i}}\cdot{}\vec{v_{j}}$ (for $i\le{}j$).
+\textbf{Theorem 5.2.3}\\
+\par\noindent\textbf{$QR$ factorization}
+\par\noindent Consider an $n\times{}m$ matrix $M$ with linearly independent columns $\vec{v_{1}},\ldots{}\vec{v_{m}}$. Then the columns $\vec{u_{1}},\ldots{},\vec{u_{m}}$ of $Q$ and the entries $r_{ij}$ of $R$ can be computed in the following order:
+\renewcommand{\labelenumi}{$\quad$}
+\begin{enumerate}
+\item first column of $R$, first column of $Q$;
+\item second column of $R$, second column of $Q$;
+\item third column of $R$, third column of $Q$;
+\item and so on.
+\end{enumerate}
+\par\noindent More specifically,
+\renewcommand{\labelenumi}{$\quad$}
+\begin{enumerate}
+\item $\displaystyle r_{11}=||\vec{v_{1}}||,\quad{}\vec{u_{1}}=\frac{1}{r_{11}}\vec{v_{1}}$;
+\item $\displaystyle r_{12}=\vec{u_{1}}\cdot{}\vec{v_{2}},\quad{}\vec{v_{2}}^{\perp}=\vec{v_{2}}-r_{12}\vec{u_{1}}\quad{}r_{22}=||\vec{v_{2}}^{\perp}||,\quad{}\vec{u_{2}}=\frac{1}{r_{22}}\vec{v_{2}}^{\perp}$;
+\item $\displaystyle r_{13}=\vec{u_{1}}\cdot{}\vec{v_{3}},\quad{}r_{23}=\vec{u_{2}}\cdot{}\vec{v_{3}},\quad{}\vec{v_{3}}^{\perp}=\vec{v_{3}}-r_{13}\vec{u_{1}}-r_{23}\vec{u_{2}},\quad{}r_{33}=||\vec{v_{3}}^{\perp}||,\quad{}\vec{u_{3}}=\frac{1}{r_{33}}\vec{v_{3}}^{\perp}$;
+\end{enumerate}
+\par\noindent and so on.
+
+\subsection{Orthogonal Transformations and Orthogonal Matrices}
+\textbf{Definition 5.3.1}\\
+\par\noindent\textbf{Orthogonal Transformations and orthogonal matrices}
+\par\noindent A linear transformation $T$ from $\mathbb{R}^{n}$ to $\mathbb{R}^{n}$ is called \textit{orthogonal} if it preserves the length of vectors:
+\[||T(\vec{x})||=||\vec{x}||,\quad{}\textrm{for all }\vec{x}\textrm{ in }\mathbb{R}^{n}.\]
+\par\noindent If $T(\vec{x})=A\vec{x}$ is an orthogonal transformation, we say that $A$ is an \textit{orthogonal matrix}.
+\textbf{Theorem 5.3.2}\\
+\par\noindent\textbf{Orthogonal transformations preserve orthogonality}
+\par\noindent Consider an orthogonal transformation $T$ from $\mathbb{R}^{n}$ to $\mathbb{R}^{n}$. If the vectors $\vec{v}$ and $\vec{w}$ in $\mathbb{R}^{n}$ are orthogonal, then so are $T(\vec{v})$ and $T(\vec{w})$.
+\textbf{Theorem 5.3.3}\\
+\par\noindent\textbf{Orthogonal transformations and orthonormal bases}
+\renewcommand{\labelenumi}{\textbf{\alph{enumi}.}}
+\begin{enumerate}
+\item A linear transformation $T$ from $\mathbb{R}^{n}$ to $\mathbb{R}^{n}$ is orthogonal if (and only if) the vectors $T(\vec{e_{1}}),T(\vec{e_{2}}),\ldots{},T(\vec{e_{n}})$ form an orthonormal basis of $\mathbb{R}^{n}$.
+\item An $n\times{}n$ matrix $A$ is orthogonal if (and only if) its columns form an orthonormal basis of $\mathbb{R}^{n}$.
+\end{enumerate}
+\textbf{Theorem 5.3.4}\\
+\par\noindent\textbf{Products and inverses of orthogonal matrices}
+\renewcommand{\labelenumi}{\textbf{\alph{enumi}.}}
+\begin{enumerate}
+\item The product $AB$ of two orthogonal $n\times{}n$ matrices $A$ and $B$ is orthogonal.
+\item The inverse $A^{-1}$ of an orthogonal $n\times{}n$ matrix $A$ is orthogonal.
+\end{enumerate}
+\textbf{Definition 5.3.5}\\
+\par\noindent\textbf{The transpose of a matrix; symmetric and skew-symmetric matrices}
+\par\noindent Consider an $m\times{}n$ matrix $A$.
+\par\noindent The \textit{transpose} $A^{T}$ of $A$ is the $n\times{}m$ matrix whose $ij$th entry is the $ji$th entry of $A$: The roles of rows and columns are reversed.
+\par\noindent We say that a square matrix $A$ is \textit{symmetric} if $A^{T}=A$, and $A$ is called \textit{skew-symmetric} if $A^{T}=-A$.
+\textbf{Theorem 5.3.6}\\
+\par\noindent If $\vec{v}$ and $\vec{w}$ are two (column) vectors in $\mathbb{R}^{n}$, then $\vec{v}\cdot{}\vec{w}=\vec{v}^{T}\vec{w}$.
+\textbf{Theorem 5.3.7}\\
+\par\noindent Consider an $n\times{}n$ matrix $A$. The matrix $A$ is orthogonal if (and only if) $A^{T}A=I_{n}$, or, equivalently, if $A^{-1}=A^{T}$.
+\textbf{Summary 5.3.8}\\
+\par\noindent\textbf{Orthogonal Matrices}
+\par\noindent Consider an $n\times{}n$ matrix $A$. Then the following statements are equivalent:
+\renewcommand{\labelenumi}{\textbf{\roman{enumi}.}}
+\begin{enumerate}
+\item $A$ is an orthogonal matrix.
+\item The transformation $L(\vec{x})=A\vec{x}$ preserves lengths; that is, $||A\vec{x}||=||\vec{x}||$ for all $\vec{x}$ in $\mathbb{R}^{n}$.
+\item The columns of $A$ form an orthonormal basis of $\mathbb{R}^{n}$.
+\item $A^{T}A=I_{n}$.
+\item $A^{-1}=A^{T}$.
+\item $A$ preserves the dot product, meaning that $(A\vec{x})\cdot{}(A\vec{y})=\vec{x}\cdot{}\vec{y}$ for all $\vec{x}$ and $\vec{y}$ in $\mathbb{R}^{n}$.
+\end{enumerate}
+\textbf{Theorem 5.3.9}\\
+\par\noindent\textbf{Properties of the transpose}
+\par\noindent $\displaystyle \quad\begin{array}{rll}\textbf{a.}&(A+B)^{T}=A^{T}+B^{T}&\textrm{for all }m\times{}n\textrm{ matrices }A\textrm{ and }B.\\{} \textbf{b.}&(kA)^{T}=kA^{T}&\textrm{for all }m\times{}n\textrm{ matrices }A\textrm{ and for all scalars }k.\\{} \textbf{c.}&(AB)^{T}=B^{T}A^{T}&\textrm{for all }m\times{}p\textrm{ matrices }A\textrm{ and for all }p\times{}n\textrm{ matrices }B.\\{} \textbf{d.}&\textrm{rank}(A^{T})=\textrm{rank}(A)&\textrm{for all matrices }A.\\{} \textbf{e.}&(A^{T})^{-1}=(A^{-1})^{T}&\textrm{for all invertible }n\times{}n\textrm{ matrices }A.\end{array}$
+\textbf{Theorem 5.3.10}\\
+\par\noindent\textbf{The matrix of an orthogonal projection}
+\par\noindent Consider a subspace $V$ of $\mathbb{R}^{n}$ with orthonormal basis $\vec{u_{1}},\vec{u_{2}},\ldots{},\vec{u_{m}}$. The matrix $P$ of the orthogonal projection onto $V$ is
+\[P=QQ^{T},\quad\textrm{where}\quad{}Q=\left[\begin{array}{cccc}|&|&&|\\ \vec{u_{1}}&\vec{u_{2}}&\cdots{}&\vec{u_{m}}\\{} |&|&&|\end{array}\right].\]
+\par\noindent Pay attention to the order of the factors ($QQ^{T}$ as opposed to $Q^{T}Q$). Note that matrix $P$ is symmetric, since $P^{T}=(QQ^{T})^{T}=(Q^{T})^{T}Q^{T}=QQ^{T}=P$.
+
+\subsection{Least Squares and Data Fitting}
+\textbf{Theorem 5.4.1}\\
+\par\noindent For any matrix $A$, $(\textrm{im}A)^{\perp}=\textrm{ker}(A^{\perp})$.
+\textbf{Theorem 5.4.2}\\
+\renewcommand{\labelenumi}{\textbf{\alph{enumi}.}}
+\begin{enumerate}
+\item If $A$ is an $n\times{}m$ matrix, then $\textrm{ker}(A)=\textrm{ker}(A^{T}A)$.
+\item If $A$ is an $n\times{}m$ matrix with $\textrm{ker}(A)=\{\vec{0}\}$, then $A^{T}A$ is invertible.
+\end{enumerate}
+\subsubsection*{An Alternative Characterization of Orthogonal Projections}
+\textbf{Theorem 5.4.3}\\
+\par\noindent Consider a vector $\vec{x}$ in $\mathbb{R}^{n}$ and a subspace $V$ of $\mathbb{R}^{n}$. Then the orthogonal projection $\textrm{proj}_{V}\vec{x}$ is the vector in $V$ \textit{closest} to $\vec{x}$, in that
+\[||\vec{x}-\textrm{proj}_{V}\vec{x}||<{}||\vec{x}-\vec{v}||,\]
+\par\noindent for all $\vec{v}$ in $V$ different from $\textrm{proj}_{V}\vec{x}$.
+\textbf{Definition 5.4.4}\\
+\par\noindent\textbf{Least-squares solution}
+\par\noindent Consider a linear system $A\vec{x}=B$, where $A$ is an $n\times{}m$ matrix. A vector $\vec{x}^{*}$ in $\mathbb{R}^{m}$ is called a \textit{least-squares solution} of this system if $||\vec{b}-A\vec{x}^{*}||\le{}||\vec{b}-A\vec{x}||$ for all $\vec{x}$ in $\mathbb{R}^{m}$.
+\textbf{Theorem 5.4.5}\\
+\par\noindent\textbf{The normal equation}
+\par\noindent The least-squares solutions of the system $A\vec{x}=\vec{b}$ are the exact solutions of the (consistent) system $A^{T}A\vec{x}=A^{T}\vec{b}$. The system $A^{T}A\vec{x}=A^{T}\vec{b}$ is called the \textit{normal equation} of $A\vec{x}=\vec{b}$.
+\textbf{Theorem 5.4.6}\\
+\par\noindent If $\textrm{ker}(A)={\vec{0}}$, then the linear system $A\vec{x}=\vec{b}$ has the unique least squares solution $\vec{x}^{*}=(A^{T}A)^{-1}A^{T}\vec{b}.$
+\textbf{Theorem 5.4.7}\\
+\par\noindent\textbf{The matrix of an orthogonal projection}
+\par\noindent Consider a subspace $V$ of $\mathbb{R}^{n}$ with basis $\vec{v_{1}},\vec{v_{2}},\ldots{},\vec{v_{m}}$. Let
+\[A=\left[\begin{array}{cccc}|&|&&|\\{}\vec{v_{1}}&\vec{v_{2}}&\cdots{}&\vec{v_{m}}\\{}|&|&&|\end{array}\right]\]
+\par\noindent Then the matrix of the orthogonal projection onto $V$ is $A(A^{T}A)^{-1}A^{T}$.
+
+\subsection{Inner Product Spaces}
+\textbf{Definition 5.5.1}\\
+\par\noindent\textbf{Inner products and inner product spaces}
+\par\noindent An \textit{inner product} in a linear space $V$ is a rule that assigns a real scalar (denoted by $\langle{}f,g\rangle{}$) to any pair $f$, $g$ elements of $V$, such that the following properties hold for all $f$, $g$, $h$ in $V$, and all $c$ in $\mathbb{R}$.
+\renewcommand{\labelenumi}{\textbf{\alph{enumi}.}}
+\begin{enumerate}
+\item $\langle{}f,g\rangle{}=\langle{}g,f\rangle{}$ (symmetry).
+\item $\langle{}f+h,g\rangle{}=\langle{}f,g\rangle{}+\langle{}h,g\rangle{}$.
+\item $\langle{}cf,g\rangle{}=c\langle{}f,g\rangle{}$.
+\item $\langle{}f,f\rangle{}>0$, for all nonzero $f$ in $V$ (positive definiteness.
+\end{enumerate}
+\par\noindent A linear space endowed with an inner product is called an \textit{inner product space}.
+\textbf{Definition 5.5.2}\\
+\par\noindent\textbf{Norm, orthogonality}
+\par\noindent The \textit{norm} (or magnitude) of an element $f$ of an inner product space is
+\[||f||=\sqrt{\langle{}f,f\rangle{}}.\]
+\par\noindent Two elements $f$ and $g$ of an inner product space are called \textit{orthogonal} (or perpendicular) if $\langle{}f,g\rangle{}=0$.
+\textbf{Theorem 5.5.3}\\
+\par\noindent\textbf{Orthogonal Projection}
+\par\noindent If $g_{1},\ldots{},g_{m}$ is an orthonormal basis of a subspace $W$ of an inner product space $V$, then
+\[\textrm{proj}_{W}f=\langle{}g_{1},f\rangle{}g_{1}+\cdots{}+\langle{}g_{m},f\rangle{}g_{m},\]
+\par\noindent for all $f$ in $V$.
+
+
+\section{Determinants}
+
+\subsection{Introduction to Determinants}
+\subsubsection*{The Determinant of a $3\times{}3$ Matrix}
+\textbf{Definition 6.1.1}\\
+\par\noindent\textbf{Determinant of a $3\times{}3$ matrix, in terms of the columns}
+\par\noindent If $\displaystyle A=\left[\begin{array}{ccc}\vec{u}&\vec{v}&\vec{w}\end{array}\right]$, then $\textrm{det}A=\vec{u}\cdot{}(\vec{v}\times{}\vec{w})$.
+\par\noindent A $3\times{}3$ matrix $A$ is invertible if (and only if) $\textrm{det}(A)\ne{}0$.
+\textbf{Theorem 6.1.2}\\
+\par\noindent\textbf{Sarrus's rule}
+\par\noindent To find the determinant of a $3\times{}3$ matrix $A$, write the first two columns of $A$ to the right of $A$. Then multiply the entries along the six diagonals shown in the book. Add or subtract these diagonal products, as shown in the diagram. (I don't know how to put this into LaTeX, so check the textbook.)
+\[\textrm{det}A=a_{11}a_{22}a_{33}+a_{12}a_{23}a_{31}+a_{13}a_{21}a_{32}-a_{13}a_{22}a_{31}-a_{11}a_{23}a_{32}-a_{12}a_{21}a_{33}.\]
+\subsubsection*{Linearity Properties of the Determinant}
+No theorems or definitions, except that the determinant is not a linear transformation, but has some linear properties.
+\subsubsection*{The Determinant of an $n\times{}n$ Matrix}
+\textbf{Definition 6.1.3}\\
+\par\noindent\textbf{Patterns, inversions, and determinants}
+\par\noindent A \textit{pattern} in an $n\times{}n$ matrix $A$ is a way to choose $n$ entries of the matrix so that there is one chosen entry in each row and in each column of $A$.
+\par\noindent With a pattern $P$ we associate the product of all its entries, denoted $\textrm{prod }P$.
+\par\noindent Two entries in a pattern are said to be \textit{inverted} if one of them is located to the right and above the other in the matrix.
+\par\noindent The \textit{signature} of a pattern $P$ is defined as $\textrm{sgn }P=(-1)^{(\textrm{number of inversions in }P)}$.
+\par\noindent The determinant of $A$ is defined as
+\[\textrm{det}A=\sum{}(\textrm{sgn }P)(\textrm{prod }P),\]
+\par\noindent where the sum is taken over all $n!$ patterns $P$ in the matrix $A$. Thus, we are summing up the products associated with all patterns with an even number of inversions, and we are subtracting the products associated with the patterns with an odd number of inversions.
+\textbf{Theorem 6.1.4}\\
+\par\noindent\textbf{Determinant of a triangular matrix}
+\par\noindent The determinant of an (upper or lower) triangular matrix is the product of the diagonal entries of the matrix. In particular, the determinant of a diagonal matrix is the product of its diagonal entries.
+
+\subsection{Properties of the Determinant}
+\textbf{Theorem 6.2.1}\\
+\par\noindent\textbf{Determinant of the transpose}
+\par\noindent If $A$ is a square matrix, then $\displaystyle \textrm{det}(A^{T})=\textrm{det}A$.
+\textbf{Theorem 6.2.2}\\
+\par\noindent\textbf{Linearity of the determinant in the rows and columns}
+\par\noindent Consider the fixed row vectors $\vec{v_{1}},\ldots{},\vec{v_{i-1}},\vec{v_{i+1}},\ldots{}\vec{v_{n}}$ with $n$ components. Then the function
+\[T(\vec{x})=\textrm{det}\left[\begin{array}{ccc}-&\vec{v_{1}}&-\\{} &\vdots{}&\\{} -&\vec{v_{i-1}}&-\\{} -&\vec{x}&-\\{} -&\vec{v_{i+1}}&-\\{} &\vdots{}&\\{} -&\vec{v_{n}}&- \end{array}\right]\quad{}\textrm{from }\mathbb{R}^{1\times{}n}\textrm{ to }\mathbb{R}\]
+\par\noindent is a linear transformation. This property is referred to as \textit{linearity of the determinant in the i\textnormal{th} row}. Likewise, the determinant is \textit{linear in all the columns}.
+\textbf{Theorem 6.2.3}\\
+\par\noindent\textbf{Elementary row operations and determinants}
+\renewcommand{\labelenumi}{\textbf{\alph{enumi}.}}
+\begin{enumerate}
+\item If $B$ is obtained from $A$ by dividing a row of $A$ by a scalar $k$, then $\textrm{det}B=(1/k)\textrm{det}A$. (i.e. $\textrm{det}A=k\textrm{det}B$)
+\item If $B$ is obtained from $A$ by a row swap, then $\textrm{det}B=-\textrm{det}A$. We say that the determinant is \textit{alternating} on the rows.
+\item If $B$ is obtained from $A$ by adding a multiple of a row of $A$ to another row, then $\textrm{det}B=\textrm{det}A$.
+\end{enumerate}
+\par\noindent Analogous results hold for elementary column operations.
+\textbf{Theorem 6.2.4}\\
+\par\noindent\textbf{Invertibility and determinant}
+\par\noindent A square matrix $A$ is invertible if and only if $\textrm{det}A\ne{}0$.
+\textbf{Theorem 6.2.6}\\
+\par\noindent\textbf{Determinants of products and powers}
+\par\noindent If $A$ and $B$ are $n\times{}n$ matrices and $m$ is a positive integer, then
+\renewcommand{\labelenumi}{\textbf{\alph{enumi}.}}
+\begin{enumerate}
+\item $\textrm{det}(AB)=(\textrm{det}A)(\textrm{det}B)$, and
+\item $\textrm{det}(A^{m})=(\textrm{det}A)^{m}$.
+\end{enumerate}
+\textbf{Theorem 6.2.7}\\
+\par\noindent\textbf{Determinants of similar matrices}
+\par\noindent If matrix $A$ is similar to $B$, then $\textrm{det}A=\textrm{det}B$.
+\textbf{Theorem 6.2.8}\\
+\par\noindent\textbf{Determinant of an inverse}
+\par\noindent If $A$ is an invertible matrix, then
+\[\textrm{det}(A^{-1})=\frac{1}{\textrm{det}A}=(\textrm{det}A)^{-1}\]
+\textbf{Definition 6.2.9}\\
+\par\noindent\textbf{Minors}
+\par\noindent For an $n\times{}n$ matrix $A$, let $A_{ij}$ be the matrix obtained by omitting the $i$th row and the $j$th column of $A$. The determinant of the $(n-1)\times{}(n-1)$ matrix $A_{ij}$ is called a \textit{minor} of $A$.
+\textbf{Theorem 6.2.10}\\
+\par\noindent\textbf{Laplace expansion (or cofactor expansion)}
+\par\noindent We can compute the determinant of an $n\times{}n$ matrix $A$ by Laplace expansion down any column or along any row.
+\par Expansion down the $j$th column:
+\[\textrm{det}A=\sum_{i=1}^{n}(-1)^{i+j}a_{ij}\textrm{det}(A_{ij})\]
+\par Expansion along the $i$th row:
+\[\textrm{det}A=\sum_{j=1}^{n}(-1)^{i+j}a_{ij}\textrm{det}(A_{ij})\]
+\textbf{Theorem 6.2.11}\\
+\par\noindent\textbf{The determinant of a linear transformation}
+\par\noindent Consider a linear transformation $T$ from $V$ to $V$, where $V$ is a finite-dimensional linear space. If $\mathfrak{B}$ is a basis of $V$ and $B$ is the $\mathfrak{B}$-matrix of $T$, then we define $\textrm{det}T=\textrm{det}B$. This determinant is independent of the basis $\mathfrak{B}$ we choose.
+
+\subsection{Geometrical Interpretations of the Determinant; Cramer's Rule}
+\textbf{Theorem 6.3.1}\\
+\par\noindent The determinant of an orthogonal matrix is either $1$ or $-1$.
+\subsubsection*{Definition 6.3.2}
+\par\noindent\textbf{Rotation matrices}
+\par\noindent An orthogonal $n\times{}n$ matrix $A$ with $\textrm{det}A=1$ is called a \textit{rotation matrix}, and the linear transformation $T(\vec{x})=A\vec{x}$ is called a \textit{rotation}.
+\textbf{Theorem 6.3.3}\\
+\par\noindent\textbf{The determinant in terms of the columns}
+\par\noindent If $A$ is an $n\times{}n$ matrix with columns $\vec{v_{1}},\vec{v_{2}},\ldots{},\vec{v_{n}}$, then $|\textrm{det}A|=||\vec{v_{1}}||||\vec{v_{2}}^{\perp}||\cdots{}||\vec{v_{n}}^{\perp}||$, where $\vec{v_{k}}^{\perp}$ is the component of $\vec{v_{k}}$ perpendicular to $\textrm{span}(\vec{v_{1}},\ldots{},\vec{v_{k-1}})$.
+\textbf{Theorem 6.3.4}\\
+\par\noindent\textbf{Volume of a parallelepiped in $\mathbb{R}^{3}$}
+\par\noindent Consider a $3\times{}3$ matrix $A=\left[\begin{array}{ccc}\vec{v_{1}}&\vec{v_{2}}&\vec{v_{3}}\end{array}\right]$. Then the volume of the parallelepiped defined by $\vec{v_{1}}$, $\vec{v_{2}}$, and $\vec{v_{3}}$ is $|\textrm{det}A|$.
+\textbf{Definition 6.3.5}\\
+\par\noindent\textbf{Parallelepipeds in $\mathbb{R}^{n}$}
+\par\noindent Consider the vectors $\vec{v_{1}},\vec{v_{2}},\ldots{},\vec{v_{m}}$ in $\mathbb{R}^{n}$. The $m$-paralellepiped defined by the vectors $\vec{v_{1}},\ldots{},\vec{v_{m}}$ is the set of all vectors in $\mathbb{R}^{n}$ of the form $c_{1}\vec{v_{1}}+c_{2}\vec{v_{2}}+\cdots{}+c_{m}\vec{v_{m}}$, where $0\le{}c_{i}\le{}1$. The $m$-volume $V(\vec{v_{1}},\ldots{},\vec{v_{m}})$ of this $m$-parallelepiped is defined recursively by $V(\vec{v_{1}})=||\vec{v_{1}}||$ and $V(\vec{v_{1}},\ldots{},\vec{v_{m}})=V(\vec{v_{1}},\ldots{},\vec{v_{m-1}})||\vec{v_{m}}^{\perp}||$.
+\textbf{Theorem 6.3.6}\\
+\par\noindent\textbf{Volume of a parallelepiped in $\mathbb{R}^{n}$}
+\par\noindent Consider the vectors $\vec{v_{1}},\vec{v_{2}},\ldots{},\vec{v_{m}}$ in $\mathbb{R}^{n}$. Then the $m$-volume of the $m$-parallelepiped defined by the vectors $\vec{v_{1}},\ldots{},\vec{v_{m}}$ is $\sqrt{\textrm{det}(A^{T}A)}$, where $A$ is the $n\times{}m$ matrix with columns $\vec{v_{1}},\vec{v_{2}},\ldots{},\vec{v_{m}}$. In particular, if $m=n$, this volume is $|\textrm{det}A|$.
+\textbf{Theorem 6.3.7}\\
+\par\noindent\textbf{Expansion factor}
+\par\noindent Consider a linear transformation $T(\vec{x})=A\vec{x}$ from $\mathbb{R}^{2}$ to $\mathbb{R}^{2}$. Then $|\textrm{det}A|$ is the \textit{expansion factor}
+\[\frac{\textrm{area of }T(\Omega{})}{\textrm{area of }\Omega{}}\]
+\par\noindent of $T$ on parallelograms $\Omega{}$.
+\par\noindent Likewise, for a linear transformation $T(\vec{x})=A\vec{x}$ from $\mathbb{R}^{n}$ to $\mathbb{R}^{n}$, $|\textrm{det}A|$ is the expansion factor of $T$ on $n$-parallelepipeds:
+\[V(A\vec{v_{1}},\ldots{},A\vec{v_{n}})=|\textrm{det}A|V(\vec{v_{1}},\ldots{},\vec{v_{n}}),\]
+\par\noindent for all vectors $\vec{v_{1}},\ldots{},\vec{v_{n}}$ in $\mathbb{R}^{n}$.
+\textbf{Theorem 6.3.8}\\
+\par\noindent\textbf{Carmer's rule}
+\par\noindent Consider the linear system $A\vec{x}=\vec{b}$, where $A$ is an invertible $n\times{}n$ matrix. The components $x_{i}$ of the solution vector $\vec{x}$ are
+\[x_{i}=\frac{\textrm{det}(A_{\vec{b},i})}{\textrm{det}A},\]
+\par\noindent where $A_{\vec{b},i}$ is the matrix obtained by replacing the $i$th column of $A$ by $\vec{b}$.
+\textbf{Theorem 6.3.9}\\
+\par\noindent\textbf{Adjoint and inverse of a matrix}
+\par\noindent Consider an invertible $n\times{}n$ matrix $A$. The \textit{classical adjoint} $\textrm{adj}(A)$ is the $n\times{}n$ matrix whose $ij$th entry is $(-1)^{i+j}\textrm{det}(A_{ij})$. Then
+\[A^{-1}=\frac{1}{\textrm{det}(A)}\textrm{adj}(A).\]
+
+\section{Eigenvalues and Eigenvectors}
+
+\subsection{Diagonalization}
+\textbf{Definition 7.1.1}\\
+\par\noindent\textbf{Diagonalizable matrices}
+\par\noindent Consider a linear transformation $T(\vec{x})=A\vec{x}$ from $\mathbb{R}^{n}$ to $\mathbb{R}^{n}$. Then $A$ (or $T$) is said to \textit{diagonalizable} if the matrix $B$ of $T$ with respect to some basis is diagonal.
+\par By Theorem 3.4.4 and Definition 3.4.5, matrix $A$ is diagonalizable if (and only if) $A$ is similar to some diagonal matrix $B$, meaning that there exists an invertible matrix $S$ such that $S^{-1}AS=B$ is diagonal.
+\par To \textit{diagonalize} a square matrix $A$ means to find an invertible matrix $S$ and a diagonal matrix $B$ such that $S^{-1}AS=B$.
+\textbf{Definition 7.1.2}\\
+\par\noindent\textbf{Eigenvectors, eigenvalues, and eigenbases}
+\par\noindent Consider a linear transformation $T(\vec{x})=A\vec{x}$ from $\mathbb{R}^{n}$ to $\mathbb{R}^{n}$.
+\par A nonzero vector $\vec{v}$ in $\mathbb{R}^{n}$ is called an \textbf{eigenvector} of $A$ (or $T$) if $A\vec{v}=\lambda{}\vec{v}$ for some scalar $\lambda{}$. This $\lambda{}$. is called the \textbf{eigenvalue} associated with the eigenvector $\vec{v}$.
+\par A basis $\vec{v_{1}},\ldots{},\vec{v_{n}}$ of $\mathbb{R}^{n}$ is called an \textbf{eigenbasis} for $A$ (or $T$) if the vectors $\vec{v_{1}},\ldots{},\vec{v_{n}}$ are eigenvectors of $A$, meaning that $A\vec{v_{1}}=\lambda{}_{1}\vec{v_{1}},\ldots{},A\vec{v_{n}}=\lambda{}_{n}\vec{v_{n}}$ for some scalars $\lambda{}_{1},\ldots{},\lambda{}_{n}$.
+\textbf{Theorem 7.1.3}\\
+\par\noindent\textbf{Eigenbases and diagonalization}
+\par\noindent The matrix $A$ is diagonalizable if (and only if) there exists an eigenbasis for $A$. If $\vec{v_{1}},\ldots{},\vec{v_{n}}$ is an eigenbasis for $A$, with $A\vec{v_{1}}=\lambda{}_{1}\vec{v_{1}},\ldots{},A\vec{v_{n}}=\lambda{}_{n}\vec{v_{n}}$, then the matrices
+\[S=\left[\begin{array}{cccc}|&|&&|\\{} \vec{v_{1}}&\vec{v_{2}}&\cdots{}&\vec{v_{n}}\\{} |&|&&|\end{array}\right]\textrm{ and }B=\left[\begin{array}{cccc}\lambda{}_{1}&0&\cdots{}&0\\ 0&\lambda{}_{2}&\cdots{}&0\\ \vdots{}&\vdots{}&\ddots{}&\vdots{}\\ 0&0&\cdots{}&\lambda{}_{n}\end{array}\right]\]
+\par\noindent will diagonalize $A$, meaning that $S^{-1}AS=B$.
+\par Conversely, if the matrices $S$ and $B$ diagonalize $A$, then the column vectors of $S$ will form an eigenbasis for $A$, and the diagonal entries of $B$ will be the associated eigenvalues.
+\textbf{Theorem 7.1.4}\\
+\par\noindent The possible real eigenvalues of an orthogonal matrix are $1$ and $-1$.
+\textbf{Summary 7.1.5}\\
+\par\noindent\textbf{Various characterizations of invertible matrices}
+\par\noindent For an $n\times{}n$ matrix $A$, the following statements are equivalent.
+\renewcommand{\labelenumi}{\textbf{\roman{enumi}.}}
+\begin{enumerate}
+\item $A$ is invertible.
+\item The linear system $A\vec{x}=\vec{b}$ has a unique solution $\vec{x}$, for all $\vec{b}$ in $\mathbb{R}^{n}$.
+\item $\textrm{rref}A=I_{n}$.
+\item $\textrm{rank}A=n$.
+\item $\textrm{im}A=\mathbb{R}^{n}$.
+\item $\textrm{ker}A=\{\vec{0}\}$
+\item The column vectors of $A$ form a basis of $\mathbb{R}^{n}$.
+\item The column vectors of $A$ span $\mathbb{R}^{n}$.
+\item The column vectors of $A$ are linearly independent.
+\item $\textrm{det}A\ne{}0$.
+\item $0$ fails to be an eigenvalue of $A$.
+\end{enumerate}
+
+\subsection{Finding the Eigenvalues of a Matrix}
+\textbf{Theorem 7.2.1}\\
+\par\noindent\textbf{Eigenvalues and determinants; characteristic equation}
+\par\noindent Consider an $n\times{}n$ matrix $A$ and a scalar $\lambda{}$. Then $\lambda{}$ is an eigenvalue of $A$ if (and only if) $\textrm{det}(A-\lambda{}I_{n})=0$.
+\par\noindent This is called the \textit{characteristic equation} (or the \textit{secular equation}) of matrix $A$.
+\textbf{Theorem 7.2.2}\\
+\par\noindent\textbf{Eigenvalues of a triangular matrix}
+\par\noindent The eigenvalues of a triangular matrix are its diagonal entries.
+\textbf{Definition 7.2.3}\\
+\par\noindent\textbf{Trace}
+\par\noindent The sum of the diagonal entries of a square matrix $A$ is called the \textit{trace} of $A$, denoted by $\textrm{tr}A$.
+\textbf{Theorem 7.2.4}\\
+\par\noindent\textbf{Characteristic equation of a $2\times{}2$ matrix $A$}
+\[\textrm{det}(A-\lambda{}I_{2})=\lambda{}^{2}-(\textrm{tr}A)\lambda{}+\textrm{det}A=0\]
+\textbf{Theorem 7.2.5}\\
+\par\noindent\textbf{Characteristic polynomial}
+\par\noindent If $A$ is an $n\times{}n$ matrix, then $\textrm{det}(A-\lambda{}I_{n})$ is a polynomial of degree $n$, of the form
+\[(-\lambda{})^{n}+(\textrm{tr}A)(-\lambda{})^{n-1}+\cdots{}+\textrm{det}A\]
+\[=(-1)^{n}\lambda{}^{n}+(-1)^{n-1}(\textrm{tr}A)\lambda{}^{n-1}+\cdots{}+\textrm{det}A.\]
+\par\noindent This is called the \textit{characteristic polynomial} of $A$, denoted by $f_{A}(\lambda{})$.
+\textbf{Definition 7.2.6}\\
+\par\noindent\textbf{Algebraic multiplicity of an eigenvalue}
+\par\noindent We say that an eigenvalue $\lambda{}_{0}$ of a square matrix $A$ has \textit{algebraic multiplicity} $k$ if $\lambda{}_{0}$ is a root of multiplicity $k$ of the characteristic polynomial $f_{A}(\lambda{})$, meaning that we can write $f_{A}(\lambda{})=(\lambda{}_{0}-\lambda{})^{k}g(\lambda{})$ for some polynomial $g(\lambda{})$ with $g(\lambda{}_{0})\ne{}0$. We write $\textrm{almu}(\lambda{}_{0})=k$.
+\textbf{Theorem 7.2.7}\\
+\par\noindent\textbf{Number of eigenvalues}
+\par\noindent An $n\times{}n$ matrix has \textit{at most} $n$ real eigenvalues, even if they are counted with their algebraic multiplicities. If $n$ is odd, then an $n\times{}n$ matrix has \textit{at least} one eigenvalue.
+\textbf{Theorem 7.2.8}\\
+\par\noindent\textbf{Eigenvalues, determinant, and trace}
+\par\noindent If an $n\times{}n$ matrix $A$ has the eigenvalues $\lambda{}_{1},\lambda{}_{2},\ldots{},\lambda{}_{n}$ listed with their algebraic multiplicities, then $\textrm{det}A=\lambda{}_{1}\lambda{}_{2}\cdots{}\lambda{}_{n}$, and $\textrm{tr}A=\lambda{}_{1}+\lambda{}_{2}+\cdots{}+\lambda{}_{n}$.
+
+\subsection{Finding the Eigenvectors of a Matrix}
+\textbf{Theorem 7.3.1}\\
+\par\noindent\textbf{Eigenspaces}
+\par\noindent Consider an eigenvalue $\lambda{}$ of an $n\times{}n$ matrix $A$. Then the kernel of the matrix $A-\lambda{}I_{n}$ is called the \textit{eigenspace} associated with $\lambda{}$, denoted by $E_{\lambda{}}$:
+\[E_\lambda{}=\textrm{ker}(A-\lambda{}I_{n})=\{\vec{v}\textrm{ in }\mathbb{R}^{n}:A\vec{v}=\lambda{}\vec{v}\}.\]
+\textbf{Definition 7.3.2}\\
+\par\noindent\textbf{Geometric multiplicity}
+\par\noindent Consider an eigenvalue $\lambda{}$ of an $n\times{}n$ matrix $A$. The dimension of eigenspace $E_{\lambda{}}=\textrm{ker}(A-\lambda{}I_{n})$ is called the \textit{geometric multiplicity} of eigenvalue $\lambda{}$, denoted by $\textrm{gemu}(\lambda{})$. Thus,
+\[\textrm{gemu}(\lambda{})=\textrm{nullity}(A-\lambda{}I_{n})=n-\textrm{rank}(A-\lambda{}I_{n})\]
+\textbf{Theorem 7.3.3}\\
+\par\noindent\textbf{Eigenbases and geometric multiplicities}
+\renewcommand{\labelenumi}{\textbf{\alph{enumi}.}}
+\begin{enumerate}
+\item Consider an $n\times{}n$ matrix $A$. If we find a basis of each eigenspace of $A$ and concatenate all these bases, then the resulting eigenvectors $\vec{v_{1}},\ldots{},\vec{v_{s}}$ will be linearly independent. (Note that $s$ is the sum of the geometric multiplicities of the eigenvalues of $A$.) This result implies that $s\le{}n$.
+\item Matrix $A$ is diagonalizable if (and only if) the geometric multiplicities of the eigenvalues add up to $n$ (meaning that $s=n$ in part a).
+\end{enumerate}
+\textbf{Theorem 7.3.4}\\
+\par\noindent\textbf{An $n\times{}n$ matrix with $n$ distinct eigenvalues}
+\par\noindent If an $n\times{}n$ matrix $A$ has $n$ distinct eigenvalues, then $A$ is diagonalizable. We can construct an eigenbasis by finding an eigenvector for each eigenvalue.
+\textbf{Theorem 7.3.5}\\
+\par\noindent\textbf{The eigenvalues of similar matrices}
+\par\noindent Suppose matrix $A$ is similar to $B$. Then
+\renewcommand{\labelenumi}{\textbf{\alph{enumi}.}}
+\begin{enumerate}
+\item Matrices $A$ and $B$ have the same characteristic polynomial; that is, $f_{A}(\lambda)=f_{B}(\lambda{})$.
+\item $\textrm{rank}A=\textrm{rank}B$ and $\textrm{nullity}A=\textrm{nullity}B$.
+\item Matrices $A$ and $B$ have the same eigenvalues, with the same algebraic and geometric multiplicities. (However, the eigenvectors need not be the same.)
+\item Matrices $A$ and $B$ have the same determinant and the same trace: $\textrm{det}A=\textrm{det}B$ and $\textrm{tr}A=\textrm{tr}B$.
+\end{enumerate}
+\textbf{Theorem 7.3.6}\\
+\par\noindent\textbf{Algebraic versus geometric multiplicity}
+\par\noindent If $\lambda{}$ is an eigenvalue of a square matrix $A$, then $\textrm{gemu}(\lambda{})\le{}\textrm{almu}(\lambda{})$.
+\textbf{Theorem 7.3.7}\\
+\par\noindent\textbf{Strategy for diagonalization}
+\par\noindent Suppose we are asked to determine whether a given $n\times{}n$ matrix $A$ is diagonalizable. If so, we wish to find an invertible matrix $S$ such that $S^{-1}AS=B$ is diagonal.
+\par We can proceed as follows.
+\renewcommand{\labelenumi}{\textbf{\alph{enumi}.}}
+\begin{enumerate}
+\item Find the eigenvalues of $A$ by solving the characteristic equation $f_{A}(\lambda{})=\textrm{det}(A-\lambda{}I_{n})=0$.
+\item For each eigenvalue $\lambda{}$, find a basis of the eigenspace $E_{\lambda{}}=\textrm{ker}(A-\lambda{}I_{n})$.
+\item Matrix $A$ is diagonalizable if (and only if) the dimensions of the eigenspaces add up to $n$. In this case, we find an eigenbasis $\vec{v_{1}},\ldots{},\vec{v_{n}}$ for $A$ by concatenating the bases of the eigenspaces we found in part b.
+\par\noindent Let
+\[S=\left[\begin{array}{cccc}|&|&&|\\{} \vec{v_{1}}&\vec{v_{2}}&\cdots{}&\vec{v_{n}}\\{} |&|&&|\end{array}\right]\textrm{. Then }S^{-1}AS=B=\left[\begin{array}{cccc}\lambda{}_{1}&0&\cdots{}&0\\ 0&\lambda{}_{2}&\cdots{}&0\\ \vdots{}&\vdots{}&\ddots{}&\vdots{}\\ 0&0&\cdots{}&\lambda{}_{n}\end{array}\right]\]
+\par\noindent where $\lambda{}_{j}$ is the eigenvalue associated with $\vec{v_{j}}$.
+\end{enumerate}
+
+\subsection{More on Dynamical Systems}
+\textbf{Theorem 7.4.2}\\
+\par\noindent\textbf{Powers of a diagonalizable matrix}
+\par\noindent If
+\[S^{-1}AS=B=\left[\begin{array}{cccc}\lambda{}_{1}&0&\cdots{}&0\\ 0&\lambda{}_{2}&\cdots{}&0\\ \vdots{}&\vdots{}&\ddots{}&\vdots{}\\ 0&0&\cdots{}&\lambda{}_{n}\end{array}\right],\]
+\par\noindent then
+\[A^{t}=SB^{t}S^{-1}=S\left[\begin{array}{cccc}\lambda{}_{1}^{t}&0&\cdots{}&0\\ 0&\lambda{}_{2}^{t}&\cdots{}&0\\ \vdots{}&\vdots{}&\ddots{}&\vdots{}\\ 0&0&\cdots{}&\lambda{}_{n}^{t}\end{array}\right]S^{-1}\]
+\textbf{Definition 7.4.3}\\
+\par\noindent\textbf{The eigenvalues of a linear transformation}
+\par\noindent Consider a linear transformation $T$ from $V$ to $V$, where $V$ is a linear space. A scalar $\lambda{}$ is called an \textit{eigenvalue} of $T$ if there exists a nonzero element $f$ of $V$ such that $T(f)=\lambda{}f$.
+\par Such an $f$ is called an \textit{eigenfunction} if $V$ consists of functions, an \textit{eigenmatrix} if $V$ consists of matrices, and so on. In theoretical work, the inclusive term \textit{eigenvector} is often used for $f$.
+\par Now suppose that $V$ is finite dimensional. Then a basis $\mathfrak{B}$ of $V$ consisting of eigenvectors of $T$ is called an \textit{eigenbasis} for $T$. We say that transformation $T$ is \textit{diagonalizable} if the matrix of $T$ with respect to some basis is diagonal. Transformation $T$ is diagonalizable if (and only if) there exists an eigenbasis for $T$.
+
+\subsection{Complex Eigenvalues}
+\textbf{Theorem 7.5.2}\\
+\par\noindent\textbf{Fundamental theorem of algebra}
+\par\noindent Any polynomial $p(\lambda{})$ with complex coefficients splits; that is, it can be written as a product of linear factors
+\[p(\lambda{})=k(\lambda{}-\lambda{}_{1})(\lambda{}-\lambda{}_{2})\cdots{}(\lambda{}-\lambda{}_{n}),\]
+\par\noindent for some complex numbers $\lambda{}_{1},\lambda{}_{2},\ldots{},\lambda{}_{n}$, and $k$. (The $\lambda{}_{i}$ need not be distinct.) Therefore, a polynomial $p(\lambda{})$ of degree $n$ has precisely $n$ complex roots if they are properly counted with their multiplicities.
+\textbf{Theorem 7.5.4}\\
+\par\noindent A complex $n\times{}n$ matrix has $n$ complex eigenvalues if they are counted with their algebraic multiplicities.
+\textbf{Theorem 7.5.5}\\
+\par\noindent\textbf{Trace, determinant, and eigenvalues}
+\par\noindent Consider an $n\times{}n$ matrix $A$ with complex eigenvalues $\lambda{}_{1},\lambda{}_{2},\ldots{},\lambda{}_{n}$, listed with their algebraic multiplicities. Then
+\[\textrm{tr}A=\lambda{}_{1}+\lambda{}_{2}+\cdots{}+\lambda{}_{n}\]
+\[\textrm{det}A=\lambda{}_{1}\lambda{}_{2}\cdots{}\lambda{}_{n}.\]
+
+\section{Symmetric Matrices and Quadratic Forms}
+
+\subsection{Symmetric Matrices}
+\textbf{Theorem 8.1.1}\\
+\par\noindent\textbf{Spectral theorem}
+\par\noindent A matrix $A$ is \textit{orthogonally diagonalizable} (i.e., there exists an orthogonal $S$ such that $S^{-1}AS=S^{T}AS$ is diagonal) if and only if $A$ is \textit{symmetric} (i.e., $A^{T}=A$).
+\textbf{Theorem 8.1.2}\\
+\par\noindent Consider a symmetric matrix $A$. If $\vec{v_{1}}$ and $\vec{v_{2}}$ are eigenvectors of $A$ with \textit{distinct} eigenvalues $\lambda{}_{1}$ and $\lambda{}_{2}$, then $\vec{v_{1}}\cdot{}\vec{v_{2}}=0$; that is, $\vec{v_{2}}$ is orthogonal to $\vec{v_{1}}$.
+\textbf{Theorem 8.1.3}\\
+\par\noindent A symmetric $n\times{}n$ matrix $A$ has $n$ real eigenvalues if they are counted with their algebraic multiplicities.
+\textbf{Theorem 8.1.4}\\
+\par\noindent\textbf{Orthogonal diagonalization of a symmetric matrix $A$}
+\renewcommand{\labelenumi}{\textbf{\alph{enumi}.}}
+\begin{enumerate}
+\item Find the eigenvalues of $A$, and find a basis of each eigenspace.
+\item Using the Gram-Schmidt process, find an \textit{orthonormal} basis of each eigenspace.
+\item Form an orthonormal eigenbasis $\vec{v_{1}},\vec{v_{2}},\ldots{},\vec{v_{n}}$ for $A$ by concatenation the orthonormal bases you found in part b, and let
+\[S=\left[\begin{array}{cccc}|&|&&|\\{} \vec{v_{1}}&\vec{v_{2}}&\cdots{}&\vec{v_{n}}\\ |&|&&|\end{array}\right].\]
+\par\noindent $S$ is orthogonal, and $S^{-1}AS$ will be diagonal.
+\end{enumerate}
+
+\section{Information not in the Textbook}
